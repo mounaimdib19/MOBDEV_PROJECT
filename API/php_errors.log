@@ -1,0 +1,21 @@
+[11-Sep-2024 01:43:30 Europe/Berlin] PHP Warning:  include_once(db_connect.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\siteweb22\API\add_service.php on line 12
+[11-Sep-2024 01:43:30 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'db_connect.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\siteweb22\API\add_service.php on line 12
+[11-Sep-2024 01:43:30 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\siteweb22\API\add_service.php on line 38
+[11-Sep-2024 01:43:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\siteweb22\API\add_service.php:38
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\siteweb22\API\add_service.php on line 38
+[12-Sep-2024 15:25:59 Europe/Berlin] PHP Warning:  include_once(database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\siteweb22\API\get_admin_info.php on line 10
+[12-Sep-2024 15:25:59 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'database.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\siteweb22\API\get_admin_info.php on line 10
+[12-Sep-2024 15:25:59 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\siteweb22\API\get_admin_info.php on line 19
+[12-Sep-2024 15:25:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\siteweb22\API\get_admin_info.php:19
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\siteweb22\API\get_admin_info.php on line 19
+[12-Sep-2024 15:26:17 Europe/Berlin] PHP Warning:  include_once(database.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\siteweb22\API\get_admin_info.php on line 10
+[12-Sep-2024 15:26:17 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'database.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\siteweb22\API\get_admin_info.php on line 10
+[12-Sep-2024 15:26:17 Europe/Berlin] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\siteweb22\API\get_admin_info.php on line 19
+[12-Sep-2024 15:26:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\siteweb22\API\get_admin_info.php:19
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\siteweb22\API\get_admin_info.php on line 19

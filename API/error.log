@@ -1,0 +1,9 @@
+2024-09-13 22:23:22 - Received request - Data: {"id_doc":"5"}
+2024-09-13 22:23:53 - Received request - Data: {"id_doc":"5"}
+2024-09-13 22:24:18 - Received request - Data: {"id_doc":"5"}
+2024-09-13 22:26:48 - Received request - Data: {"id_doc":"5"}
+2024-09-13 22:26:48 - Appointments fetched successfully - Data: {"count":2,"sample":{"id_rendez_vous":3,"id_doctor_service":5,"appointment_datetime":"2024-09-13 21:57:16","statut":"accepte","patient_name":"alg","patient_phone":202,"service_name":"Acupuncture"}}
+2024-09-13 22:27:08 - Received request - Data: {"id_doc":"5"}
+2024-09-13 22:27:08 - Appointments fetched successfully - Data: {"count":2,"sample":{"id_rendez_vous":3,"id_doctor_service":5,"appointment_datetime":"2024-09-13 21:57:16","statut":"accepte","patient_name":"alg","patient_phone":202,"service_name":"Acupuncture"}}
+2024-09-13 22:27:10 - Received request - Data: {"id_doc":"5"}
+2024-09-13 22:27:10 - Appointments fetched successfully - Data: {"count":2,"sample":{"id_rendez_vous":3,"id_doctor_service":5,"appointment_datetime":"2024-09-13 21:57:16","statut":"accepte","patient_name":"alg","patient_phone":202,"service_name":"Acupuncture"}}
