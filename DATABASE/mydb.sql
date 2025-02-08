@@ -2,8 +2,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS mabase;
-USE mabase;
+CREATE DATABASE IF NOT EXISTS u910666616_mabase;
+USE u910666616_mabase;
 
 -- Table Wilaya
 CREATE TABLE IF NOT EXISTS `wilaya` (
@@ -48,6 +48,9 @@ CREATE TABLE IF NOT EXISTS `docteur` (
   `consultation_domicile` BOOLEAN NOT NULL DEFAULT FALSE,
   `consultation_cabinet` BOOLEAN NOT NULL DEFAULT FALSE,
   `est_infirmier` BOOLEAN NOT NULL DEFAULT FALSE,
+  `est_banni` BOOLEAN NOT NULL DEFAULT FALSE,
+
+  `last_location_update` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `est_gm` BOOLEAN NOT NULL DEFAULT FALSE,
   `assistant` BOOLEAN NOT NULL DEFAULT FALSE,
   `prix_consultation` int(10) DEFAULT NULL,
@@ -154,6 +157,8 @@ CREATE TABLE IF NOT EXISTS `service_types` (
   `id_service_type` int(10) NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) NOT NULL,
   `has_fixed_price` BOOLEAN NOT NULL DEFAULT TRUE,
+  `active` BOOLEAN NOT NULL DEFAULT TRUE,
+
   `fixed_price` DECIMAL(10, 2),
   `picture_url` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`id_service_type`)
@@ -205,9 +210,11 @@ CREATE TABLE IF NOT EXISTS `assistance_requests` (
   `id_request` int(10) NOT NULL AUTO_INCREMENT,
   `numero_telephone` varchar(15) NOT NULL,
   `description` TEXT,
-  `status` ENUM('pending', 'assigned') DEFAULT 'pending',
+  `status` ENUM('pending', 'assigned','complete') DEFAULT 'pending',
   `cree_le` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `mis_a_jour_le` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `notification_sent` BOOLEAN DEFAULT FALSE,
+  `notification_sent_at` TIMESTAMP NULL,
+ `mis_a_jour_le` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_request`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -222,6 +229,8 @@ CREATE TABLE IF NOT EXISTS `garde_malade_requests` (
   `cree_le` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `mis_a_jour_le` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` ENUM('pending', 'assigned') DEFAULT 'pending',
+   `notification_sent` BOOLEAN DEFAULT FALSE,
+ `notification_sent_at` TIMESTAMP NULL,
   PRIMARY KEY (`id_request`),
   FOREIGN KEY (`id_patient`) REFERENCES `patient`(`id_patient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -233,6 +242,10 @@ CREATE TABLE IF NOT EXISTS `doctor_requests` (
   `patient_longitude` DECIMAL(9, 6) NOT NULL,
   `requested_time` DATETIME NOT NULL,
   `status` ENUM('pending', 'assigned') DEFAULT 'pending',
+   `notification_sent` BOOLEAN DEFAULT FALSE,
+ `notification_sent_at` TIMESTAMP NULL,
+ `mis_a_jour_le` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
 
   PRIMARY KEY (`id_request`),
   FOREIGN KEY (`id_patient`) REFERENCES `patient`(`id_patient`)
@@ -246,6 +259,9 @@ CREATE TABLE IF NOT EXISTS `nurse_assistance_requests` (
   `requested_time` DATETIME NOT NULL,
   `id_service_type` INT(10) NOT NULL,
   `status` ENUM('pending', 'assigned') DEFAULT 'pending',
+   `notification_sent` BOOLEAN DEFAULT FALSE,
+ `notification_sent_at` TIMESTAMP NULL,
+ `mis_a_jour_le` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
   FOREIGN KEY (`id_service_type`) REFERENCES `service_types`(`id_service_type`),
   PRIMARY KEY (`id_request`),
@@ -293,3 +309,31 @@ CREATE TABLE IF NOT EXISTS `garde_malade_assignment` (
     FOREIGN KEY (`id_gm`) REFERENCES `docteur`(`id_doc`),
     FOREIGN KEY (`id_request`) REFERENCES `garde_malade_requests`(`id_request`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE IF NOT EXISTS `doctor_devices` (
+  `id_device` int(10) NOT NULL AUTO_INCREMENT,
+  `id_doc` int(10) NOT NULL,
+  `fcm_token` VARCHAR(255) NOT NULL,
+  `device_info` VARCHAR(255) DEFAULT NULL,
+  `last_used` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_active` BOOLEAN DEFAULT TRUE,
+  PRIMARY KEY (`id_device`),
+  UNIQUE KEY `unique_token` (`fcm_token`),
+  FOREIGN KEY (`id_doc`) REFERENCES `docteur`(`id_doc`) ON DELETE CASCADE,
+  INDEX `idx_doctor_tokens` (`id_doc`, `is_active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `admin_devices` (
+  `id_device` int(10) NOT NULL AUTO_INCREMENT,
+  `id_admin` int(10) NOT NULL,
+  `fcm_token` VARCHAR(255) NOT NULL,
+  `device_info` VARCHAR(255) DEFAULT NULL,
+  `last_used` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_active` BOOLEAN DEFAULT TRUE,
+  PRIMARY KEY (`id_device`),
+  UNIQUE KEY `unique_token` (`fcm_token`),
+  FOREIGN KEY (`id_admin`) REFERENCES `administrateur`(`id_admin`) ON DELETE CASCADE,
+  INDEX `idx_admin_tokens` (`id_admin`, `is_active`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
