@@ -1,0 +1,9 @@
+{
+    "settings": "Paramètres",
+    "notifications": "Notifications",
+    "privacyAndSecurity": "Confidentialité et sécurité",
+    "languages": "Langues",
+    "about": "À propos",
+    "logout": "Déconnexion",
+    "logoutConfirmation": "Êtes-vous sûr de vouloir vous déconnecter ?"
+  }

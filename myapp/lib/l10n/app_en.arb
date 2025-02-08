@@ -1,0 +1,10 @@
+{
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "privacyAndSecurity": "Privacy and Security",
+    "languages": "Languages",
+    "about": "About",
+    "logout": "Logout",
+    "logoutConfirmation": "Are you sure you want to logout?"
+  }
+  
