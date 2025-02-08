@@ -2,17 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mabase";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die(json_encode(["success" => false, "message" => "Connection failed: " . $conn->connect_error]));
-}
+require_once 'db_connection.php';
 
 // Get parameters
 $id_doc = $_POST['id_doc'];
@@ -20,6 +10,12 @@ $id_patient = $_POST['id_patient'];
 
 // Start transaction
 $conn->begin_transaction();
+
+// Get parameters
+$id_doc = $_POST['id_doc'];
+$id_patient = $_POST['id_patient'];
+
+// Start transaction
 
 try {
     // Get the 'visite' service type ID

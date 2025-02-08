@@ -14,9 +14,10 @@ try {
         throw new Exception("Database connection failed: " . mysqli_connect_error());
     }
 
-    // Fetch all available service types
+    // Fetch only active service types
     $query = "SELECT id_service_type, nom, has_fixed_price, fixed_price, picture_url 
-          FROM service_types";
+          FROM service_types 
+          WHERE active = TRUE";
 
     $stmt = $conn->prepare($query);
     

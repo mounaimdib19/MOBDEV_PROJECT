@@ -1,0 +1,2026 @@
+2024-12-11 19:13:17: Request Method: POST
+2024-12-11 19:13:17: POST Data: Array
+(
+    [id_request] => 14
+    [id_doc] => 6
+)
+
+2024-12-11 19:13:17: Processing request - ID Request: 14, ID Doc: 6
+2024-12-11 19:13:17: Error: Unknown column 'statut' in 'field list'
+2024-12-11 19:13:28: Request Method: POST
+2024-12-11 19:13:28: POST Data: Array
+(
+    [id_request] => 13
+    [id_doc] => 6
+)
+
+2024-12-11 19:13:28: Processing request - ID Request: 13, ID Doc: 6
+2024-12-11 19:13:28: Error: Unknown column 'statut' in 'field list'
+2024-12-11 19:14:28: Request Method: POST
+2024-12-11 19:14:28: POST Data: Array
+(
+    [id_request] => 14
+    [id_doc] => 6
+)
+
+2024-12-11 19:14:28: Processing request - ID Request: 14, ID Doc: 6
+2024-12-11 19:14:28: Error: Table 'mabase.doctor_assignments' doesn't exist
+[12-Dec-2024 07:47:16 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:47:16 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:47:16 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:47:16 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:47:46 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:47:46 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:47:46 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:47:46 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:48:16 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:48:16 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:48:16 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:48:16 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:48:46 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:48:46 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:48:46 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:48:46 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:49:16 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:49:16 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:49:16 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:49:16 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:49:46 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:49:46 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:49:46 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:49:46 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:50:16 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:50:16 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:50:16 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:50:16 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:50:46 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:50:46 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:50:46 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:50:46 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:51:16 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[12-Dec-2024 07:51:16 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     AND r.type = ? ORDER BY r.requested_time DESC
+[12-Dec-2024 07:51:16 Europe/Berlin] Query Parameters: ["garde_malade"]
+[12-Dec-2024 07:51:16 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:51:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all"}
+[12-Dec-2024 07:51:43 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     ORDER BY r.requested_time DESC
+[12-Dec-2024 07:51:43 Europe/Berlin] Query Parameters: []
+[12-Dec-2024 07:51:43 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:52:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all"}
+[12-Dec-2024 07:52:13 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     ORDER BY r.requested_time DESC
+[12-Dec-2024 07:52:13 Europe/Berlin] Query Parameters: []
+[12-Dec-2024 07:52:13 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:52:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all"}
+[12-Dec-2024 07:52:43 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     ORDER BY r.requested_time DESC
+[12-Dec-2024 07:52:43 Europe/Berlin] Query Parameters: []
+[12-Dec-2024 07:52:43 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:53:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all"}
+[12-Dec-2024 07:53:13 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     ORDER BY r.requested_time DESC
+[12-Dec-2024 07:53:13 Europe/Berlin] Query Parameters: []
+[12-Dec-2024 07:53:13 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:53:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all"}
+[12-Dec-2024 07:53:43 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     ORDER BY r.requested_time DESC
+[12-Dec-2024 07:53:43 Europe/Berlin] Query Parameters: []
+[12-Dec-2024 07:53:43 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:54:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all"}
+[12-Dec-2024 07:54:13 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     ORDER BY r.requested_time DESC
+[12-Dec-2024 07:54:13 Europe/Berlin] Query Parameters: []
+[12-Dec-2024 07:54:13 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:54:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all"}
+[12-Dec-2024 07:54:43 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     ORDER BY r.requested_time DESC
+[12-Dec-2024 07:54:43 Europe/Berlin] Query Parameters: []
+[12-Dec-2024 07:54:43 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:55:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all"}
+[12-Dec-2024 07:55:13 Europe/Berlin] Final SQL Query: 
+        SELECT 
+            r.id_request,
+            r.patient_phone,
+            r.requested_time,
+            r.patient_latitude,
+            r.patient_longitude,
+            r.type,
+            s.name as service_type_name,
+            COALESCE(d.id_doctor, n.id_nurse, g.id_gm, a.id_assistant) as assigned_provider_id,
+            r.status
+        FROM requests r
+        LEFT JOIN service_types s ON r.service_type_id = s.id_service_type
+        LEFT JOIN doctor_assignments d ON r.id_request = d.request_id
+        LEFT JOIN nurse_assignments n ON r.id_request = n.request_id
+        LEFT JOIN gm_assignments g ON r.id_request = g.request_id
+        LEFT JOIN assistant_assignments a ON r.id_request = a.request_id
+        WHERE 1=1
+     ORDER BY r.requested_time DESC
+[12-Dec-2024 07:55:13 Europe/Berlin] Query Parameters: []
+[12-Dec-2024 07:55:13 Europe/Berlin] API Error: API Error Details: {"error_message":"Table 'mabase.requests' doesn't exist","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_appointments.php","line":104}
+[12-Dec-2024 07:55:51 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 07:55:51 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 07:55:59 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[12-Dec-2024 07:55:59 Europe/Berlin] Successfully retrieved 7 appointments
+[12-Dec-2024 07:56:05 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[12-Dec-2024 07:56:05 Europe/Berlin] Successfully retrieved 9 appointments
+[12-Dec-2024 07:56:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 07:56:19 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 07:56:21 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 07:56:21 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 07:56:21 Europe/Berlin] Incoming request parameters: {"type":"all","status":"pending","search":""}
+[12-Dec-2024 07:56:21 Europe/Berlin] Successfully retrieved 21 appointments
+[12-Dec-2024 07:57:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 07:57:40 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 07:58:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 07:58:10 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 07:58:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 07:58:40 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 08:11:44 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 08:11:44 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 08:11:49 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[12-Dec-2024 08:11:49 Europe/Berlin] Successfully retrieved 9 appointments
+[12-Dec-2024 08:12:14 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[12-Dec-2024 08:12:14 Europe/Berlin] Successfully retrieved 9 appointments
+[12-Dec-2024 08:12:44 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[12-Dec-2024 08:12:44 Europe/Berlin] Successfully retrieved 9 appointments
+[12-Dec-2024 08:13:14 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[12-Dec-2024 08:13:14 Europe/Berlin] Successfully retrieved 9 appointments
+[12-Dec-2024 08:13:16 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 08:13:16 Europe/Berlin] Successfully retrieved 12 appointments
+[12-Dec-2024 08:13:44 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 08:13:44 Europe/Berlin] Successfully retrieved 12 appointments
+[12-Dec-2024 08:14:14 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 08:14:14 Europe/Berlin] Successfully retrieved 12 appointments
+[12-Dec-2024 08:14:44 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 08:14:44 Europe/Berlin] Successfully retrieved 12 appointments
+[12-Dec-2024 08:15:14 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 08:15:14 Europe/Berlin] Successfully retrieved 12 appointments
+[12-Dec-2024 08:15:44 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 08:15:44 Europe/Berlin] Successfully retrieved 12 appointments
+[12-Dec-2024 08:16:14 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 08:16:14 Europe/Berlin] Successfully retrieved 12 appointments
+[12-Dec-2024 08:16:44 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 08:16:44 Europe/Berlin] Successfully retrieved 12 appointments
+[12-Dec-2024 08:17:15 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 08:17:15 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 09:33:24 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 09:33:24 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 13:48:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 13:48:10 Europe/Berlin] Successfully retrieved 32 appointments
+[12-Dec-2024 22:00:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 22:00:16 Europe/Berlin] Successfully retrieved 35 appointments
+[12-Dec-2024 22:00:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 22:00:19 Europe/Berlin] Successfully retrieved 35 appointments
+[12-Dec-2024 22:00:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 22:00:26 Europe/Berlin] Successfully retrieved 35 appointments
+[12-Dec-2024 22:00:28 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[12-Dec-2024 22:00:28 Europe/Berlin] Successfully retrieved 9 appointments
+[12-Dec-2024 22:00:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[12-Dec-2024 22:00:36 Europe/Berlin] Successfully retrieved 35 appointments
+[12-Dec-2024 22:00:39 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[12-Dec-2024 22:00:39 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 08:48:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:48:10 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:48:13 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 08:48:13 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 08:48:40 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 08:48:40 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 08:49:10 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 08:49:10 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 08:49:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:49:43 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:50:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:50:13 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:50:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:50:43 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:51:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:51:13 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:51:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:51:43 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:52:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:52:13 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:52:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:52:43 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:53:14 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:53:14 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:53:48 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:53:48 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:54:18 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:54:18 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:54:48 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:54:48 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:55:18 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:55:18 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:55:48 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:55:48 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:56:18 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:56:18 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:56:48 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:56:48 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:58:04 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:58:04 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:58:34 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 08:58:34 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 08:58:47 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 08:58:47 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 08:58:57 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 08:58:57 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 08:59:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 08:59:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 08:59:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 08:59:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:00:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:00:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:00:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:00:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:01:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:01:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:01:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:01:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:02:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:02:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:02:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:02:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:03:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:03:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:03:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:03:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:04:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:04:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:04:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:04:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:05:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:05:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:05:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:05:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:06:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:06:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:06:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:06:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:07:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:07:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:07:34 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:07:34 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:08:04 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 09:08:04 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 09:08:31 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 09:08:31 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 09:08:35 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[13-Dec-2024 09:08:35 Europe/Berlin] Successfully retrieved 4 appointments
+[13-Dec-2024 09:08:38 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:08:38 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:37:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 09:37:49 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 09:37:54 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:37:54 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:38:04 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[13-Dec-2024 09:38:04 Europe/Berlin] Successfully retrieved 4 appointments
+[13-Dec-2024 09:38:11 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[13-Dec-2024 09:38:11 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 09:38:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 09:38:16 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 09:38:18 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 09:38:18 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 09:38:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:38:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:38:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:38:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:39:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:39:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:39:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:39:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:40:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:40:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:40:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:40:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:41:21 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 09:41:21 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 09:41:22 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:41:22 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:41:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:41:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:42:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:42:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:42:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:42:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:43:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:43:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:43:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:43:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:44:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:44:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:44:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:44:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:45:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:45:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:45:51 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 09:45:51 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 09:45:52 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:45:52 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:46:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:46:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:46:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:46:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:47:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:47:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:47:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:47:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:48:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:48:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:48:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:48:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:49:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:49:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:49:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:49:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:50:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:50:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:50:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:50:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:51:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:51:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:51:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:51:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:52:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:52:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:52:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:52:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:53:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:53:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:53:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:53:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:54:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:54:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:54:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:54:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:55:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:55:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:55:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:55:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:56:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:56:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:56:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:56:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:57:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:57:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:57:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:57:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:58:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:58:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:58:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:58:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:59:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:59:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 09:59:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 09:59:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:00:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:00:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:00:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:00:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:01:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:01:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:01:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:01:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:02:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:02:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:02:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:02:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:03:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:03:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:03:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:03:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:04:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:04:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:04:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:04:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:05:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:05:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:05:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:05:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:06:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:06:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:06:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:06:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:07:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:07:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:07:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:07:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:08:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:08:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:08:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:08:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:09:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:09:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:09:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:09:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:10:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:10:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:10:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:10:51 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:11:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:11:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:11:58 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:11:58 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:11:59 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:11:59 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:12:28 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:12:28 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:12:58 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:12:58 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:13:28 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:13:28 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:13:58 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:13:58 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:14:28 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:14:28 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:15:17 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:15:17 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:15:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:15:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:15:47 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:15:47 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:16:17 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:16:17 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:16:47 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:16:47 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:17:17 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:17:17 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:17:50 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:17:50 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:17:53 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:17:53 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:18:20 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:18:20 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:18:50 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:18:50 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:19:20 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:19:20 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:19:50 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:19:50 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:20:20 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:20:20 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:20:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:20:40 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:20:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:20:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:21:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:21:11 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:21:13 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:21:13 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:21:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:21:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:22:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:22:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:22:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:22:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:23:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:23:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:23:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:23:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:24:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:24:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:24:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:24:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:25:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:25:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:25:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:25:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:26:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:26:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:26:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:26:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:27:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:27:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:27:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:27:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:28:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:28:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:28:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:28:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:29:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:29:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:29:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:29:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:30:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:30:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:30:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:30:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:31:00 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:31:00 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:31:02 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:31:02 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:31:30 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:31:30 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:32:00 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:32:00 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:32:30 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:32:30 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:33:00 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:33:00 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:33:30 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:33:30 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:34:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:34:08 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:34:09 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:34:09 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:34:38 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:34:38 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:35:08 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:35:08 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:35:38 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:35:38 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:36:08 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:36:08 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:36:45 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:36:45 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:36:47 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:36:47 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:37:15 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:37:15 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:37:45 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:37:45 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:38:15 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:38:15 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:38:50 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:38:50 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:38:52 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:38:52 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:39:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:39:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:39:50 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:39:50 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:40:20 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:40:20 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:40:50 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:40:50 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:41:20 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:41:20 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:41:50 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:41:50 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:42:20 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:42:20 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:42:50 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:42:50 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:43:20 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:43:20 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:43:44 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:43:44 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:43:46 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:43:46 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:44:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:44:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:44:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:44:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:45:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:45:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:45:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:45:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:46:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:46:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:46:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:46:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:47:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:47:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:47:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:47:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:48:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:48:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:48:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:48:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:49:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:49:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:49:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:49:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:50:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:50:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:50:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:50:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:51:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:51:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:51:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:51:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:52:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:52:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:52:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:52:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:53:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:53:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:53:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:53:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:54:14 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:54:14 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:54:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 10:54:46 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 10:54:47 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:54:47 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:55:16 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:55:16 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:55:46 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:55:46 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 10:56:16 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 10:56:16 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:05:18 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 11:05:18 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 11:05:20 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:05:20 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:05:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:05:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:06:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:06:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:06:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:06:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:07:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:07:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:07:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:07:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:08:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:08:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:08:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:08:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:09:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:09:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:09:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:09:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:10:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:10:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:10:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:10:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:11:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:11:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:11:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:11:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:12:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:12:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:12:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:12:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:13:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:13:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:13:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:13:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:46:17 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 11:46:17 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 11:46:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:46:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:46:47 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:46:47 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:47:17 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:47:17 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:47:47 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:47:47 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:48:17 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:48:17 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:48:47 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:48:47 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 11:49:16 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 11:49:16 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:21:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 15:21:41 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 15:21:43 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:21:43 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:22:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:22:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:22:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:22:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:23:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:23:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:23:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:23:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:24:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:24:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:24:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:24:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:25:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:25:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:25:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:25:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:26:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:26:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:26:41 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:26:41 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:27:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:27:11 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:35:42 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 15:35:42 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 15:35:44 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:35:44 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:36:12 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:36:12 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:36:42 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:36:42 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:37:12 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:37:12 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:37:42 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:37:42 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:38:12 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:38:12 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:38:42 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:38:42 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:39:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 15:39:05 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 15:39:07 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:39:07 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:39:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:39:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:40:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:40:05 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:40:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 15:40:36 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 15:40:37 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:40:37 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:41:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:41:05 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:41:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:41:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:42:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:42:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:42:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:42:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:43:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:43:05 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:43:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:43:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:44:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:44:05 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:44:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:44:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:45:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:45:05 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:45:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:45:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:46:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:46:05 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:46:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:46:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:47:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:47:05 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:47:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:47:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:48:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:48:05 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:48:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:48:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:49:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:49:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:49:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:49:35 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:50:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:50:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:50:25 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 15:50:25 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 15:50:27 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:50:27 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:50:55 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:50:55 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:51:25 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:51:25 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:51:55 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:51:55 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:52:25 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:52:25 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:52:55 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:52:55 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:53:25 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:53:25 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:53:55 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:53:55 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:54:25 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:54:25 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:55:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 15:55:06 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 15:55:08 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:55:08 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:55:36 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:55:36 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:56:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:56:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:56:36 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:56:36 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:57:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:57:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:57:36 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:57:36 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:58:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:58:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:58:36 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:58:36 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:59:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:59:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 15:59:36 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 15:59:36 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:00:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:00:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:00:36 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:00:36 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:01:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:01:06 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:01:36 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:01:36 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:02:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 16:02:16 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 16:02:17 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:02:17 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:02:45 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:02:45 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:03:15 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:03:15 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:03:45 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:03:45 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:04:15 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:04:15 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:04:45 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:04:45 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:05:15 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:05:15 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:05:45 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:05:45 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:06:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 16:06:19 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 16:06:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:06:21 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:06:49 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:06:49 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:07:19 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:07:19 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:07:49 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:07:49 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:08:19 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:08:19 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:08:49 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:08:49 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:09:19 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:09:19 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:09:49 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:09:49 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:10:19 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:10:19 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:10:49 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:10:49 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:11:19 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:11:19 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:11:49 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:11:49 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:12:19 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:12:19 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:12:48 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 16:12:48 Europe/Berlin] Successfully retrieved 35 appointments
+[13-Dec-2024 16:12:50 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:12:50 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:13:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:13:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:13:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:13:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:14:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:14:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:14:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:14:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:15:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:15:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:15:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:15:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:16:18 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:16:18 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:16:48 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:16:48 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:16:53 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"assigned","search":""}
+[13-Dec-2024 16:16:53 Europe/Berlin] Successfully retrieved 1 appointments
+[13-Dec-2024 16:58:44 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 16:58:44 Europe/Berlin] Successfully retrieved 21 appointments
+[13-Dec-2024 16:58:46 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 16:58:46 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 16:58:53 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 16:58:53 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 16:59:14 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 16:59:14 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 16:59:44 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 16:59:44 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:00:14 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:00:14 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:00:44 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:00:44 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:01:14 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:01:14 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:01:44 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:01:44 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:02:14 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:02:14 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:02:44 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:02:44 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:02:53 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 17:02:53 Europe/Berlin] Successfully retrieved 7 appointments
+[13-Dec-2024 17:03:00 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:03:00 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:03:14 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:03:14 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:03:44 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:03:44 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:03:51 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 17:03:51 Europe/Berlin] Successfully retrieved 21 appointments
+[13-Dec-2024 17:03:52 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:03:52 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:03:54 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"pending","search":""}
+[13-Dec-2024 17:03:54 Europe/Berlin] Successfully retrieved 3 appointments
+[13-Dec-2024 17:04:21 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"pending","search":""}
+[13-Dec-2024 17:04:21 Europe/Berlin] Successfully retrieved 3 appointments
+[13-Dec-2024 17:04:50 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"pending","search":""}
+[13-Dec-2024 17:04:50 Europe/Berlin] Successfully retrieved 3 appointments
+[13-Dec-2024 17:05:21 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"pending","search":""}
+[13-Dec-2024 17:05:21 Europe/Berlin] Successfully retrieved 3 appointments
+[13-Dec-2024 17:05:50 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"pending","search":""}
+[13-Dec-2024 17:05:50 Europe/Berlin] Successfully retrieved 3 appointments
+[13-Dec-2024 17:09:24 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 17:09:24 Europe/Berlin] Successfully retrieved 21 appointments
+[13-Dec-2024 17:09:26 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:09:26 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:09:54 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:09:54 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:10:24 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:10:24 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:10:54 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:10:54 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:11:24 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:11:24 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:11:54 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:11:54 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:12:24 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:12:24 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:12:54 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:12:54 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:13:24 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:13:24 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:13:54 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:13:54 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:14:24 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:14:24 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:14:54 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:14:54 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:15:24 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:15:24 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:15:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 17:15:43 Europe/Berlin] Successfully retrieved 21 appointments
+[13-Dec-2024 17:15:45 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[13-Dec-2024 17:15:45 Europe/Berlin] Successfully retrieved 9 appointments
+[13-Dec-2024 17:15:47 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"pending","search":""}
+[13-Dec-2024 17:15:47 Europe/Berlin] Successfully retrieved 3 appointments
+[13-Dec-2024 17:16:57 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 17:16:57 Europe/Berlin] Successfully retrieved 21 appointments
+[13-Dec-2024 17:16:58 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[13-Dec-2024 17:16:58 Europe/Berlin] Successfully retrieved 1 appointments
+[13-Dec-2024 17:17:26 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[13-Dec-2024 17:17:26 Europe/Berlin] Successfully retrieved 1 appointments
+[13-Dec-2024 17:17:56 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[13-Dec-2024 17:17:56 Europe/Berlin] Successfully retrieved 1 appointments
+[13-Dec-2024 17:18:28 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 17:18:28 Europe/Berlin] Successfully retrieved 21 appointments
+[13-Dec-2024 17:18:30 Europe/Berlin] Incoming request parameters: {"type":"assistant","status":"all","search":""}
+[13-Dec-2024 17:18:30 Europe/Berlin] Successfully retrieved 1 appointments
+[13-Dec-2024 17:18:33 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[13-Dec-2024 17:18:33 Europe/Berlin] Successfully retrieved 4 appointments
+[13-Dec-2024 18:32:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:32:26 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:32:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:32:56 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:33:02 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 18:33:02 Europe/Berlin] Successfully retrieved 8 appointments
+[13-Dec-2024 18:33:06 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"pending","search":""}
+[13-Dec-2024 18:33:06 Europe/Berlin] Successfully retrieved 6 appointments
+[13-Dec-2024 18:33:09 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"pending","search":""}
+[13-Dec-2024 18:33:09 Europe/Berlin] Successfully retrieved 6 appointments
+[13-Dec-2024 18:33:25 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"pending","search":""}
+[13-Dec-2024 18:33:25 Europe/Berlin] Successfully retrieved 6 appointments
+[13-Dec-2024 18:33:28 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"pending","search":"oh"}
+[13-Dec-2024 18:33:28 Europe/Berlin] Successfully retrieved 0 appointments
+[13-Dec-2024 18:33:30 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"pending","search":""}
+[13-Dec-2024 18:33:30 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"pending","search":"o"}
+[13-Dec-2024 18:33:30 Europe/Berlin] Successfully retrieved 6 appointments
+[13-Dec-2024 18:33:30 Europe/Berlin] Successfully retrieved 0 appointments
+[13-Dec-2024 18:33:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:33:37 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:33:38 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[13-Dec-2024 18:33:38 Europe/Berlin] Successfully retrieved 8 appointments
+[13-Dec-2024 18:33:40 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"pending","search":""}
+[13-Dec-2024 18:33:40 Europe/Berlin] Successfully retrieved 6 appointments
+[13-Dec-2024 18:33:49 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"pending","search":""}
+[13-Dec-2024 18:33:49 Europe/Berlin] Successfully retrieved 6 appointments
+[13-Dec-2024 18:36:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:36:56 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:36:58 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:36:58 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:37:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:37:26 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:37:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:37:56 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:38:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:38:26 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:38:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:38:41 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:39:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:39:11 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:39:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:39:41 Europe/Berlin] Successfully retrieved 15 appointments
+[13-Dec-2024 18:56:52 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[13-Dec-2024 18:56:52 Europe/Berlin] Successfully retrieved 15 appointments
+[15-Dec-2024 13:06:03 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:06:03 Europe/Berlin] Successfully retrieved 0 appointments
+[15-Dec-2024 13:06:06 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[15-Dec-2024 13:06:06 Europe/Berlin] Successfully retrieved 0 appointments
+[15-Dec-2024 13:08:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:08:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:09:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:09:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:09:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:09:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:10:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:10:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:10:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:10:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:11:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:11:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:11:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:11:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:12:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:12:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:12:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:12:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:13:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:13:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:13:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:13:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:14:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:14:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:14:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:14:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:15:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:15:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:15:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:15:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:16:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:16:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:16:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:16:40 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:17:10 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:17:10 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:17:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:17:49 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:18:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:18:19 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:18:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:18:49 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:19:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:19:19 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:19:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:19:36 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:20:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:20:06 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:20:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:20:36 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:20:47 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:20:48 Europe/Berlin] Successfully retrieved 2 appointments
+[15-Dec-2024 13:20:51 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[15-Dec-2024 13:20:51 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:20:58 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[15-Dec-2024 13:20:58 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:21:17 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[15-Dec-2024 13:21:17 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:21:47 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[15-Dec-2024 13:21:47 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:22:18 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[15-Dec-2024 13:22:18 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:22:47 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[15-Dec-2024 13:22:47 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:22:59 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:22:59 Europe/Berlin] Successfully retrieved 2 appointments
+[15-Dec-2024 13:23:02 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[15-Dec-2024 13:23:02 Europe/Berlin] Successfully retrieved 1 appointments
+[15-Dec-2024 13:23:31 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[15-Dec-2024 13:23:31 Europe/Berlin] Successfully retrieved 2 appointments
+[15-Dec-2024 13:23:35 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[15-Dec-2024 13:23:35 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 19:59:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 19:59:11 Europe/Berlin] Successfully retrieved 3 appointments
+[20-Dec-2024 20:09:22 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:09:22 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:09:26 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:09:26 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:09:52 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:09:52 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:10:22 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:10:22 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:10:52 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:10:52 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:11:22 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:11:22 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:11:52 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:11:52 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:12:22 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:12:22 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:12:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:12:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:12:40 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:12:40 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:13:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:13:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:13:38 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:13:38 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:14:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:14:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:14:38 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:14:38 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:15:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:15:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:15:38 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:15:38 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:16:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:16:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:16:38 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:16:38 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:17:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:17:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:17:38 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:17:38 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:18:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:18:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:18:38 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:18:38 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:19:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:19:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:19:38 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:19:38 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:20:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:20:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:20:38 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:20:38 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:21:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:21:06 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:21:08 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:21:08 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:21:36 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[20-Dec-2024 20:21:36 Europe/Berlin] Successfully retrieved 1 appointments
+[20-Dec-2024 20:21:57 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:21:57 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:22:27 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:22:27 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:22:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:22:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:23:31 Europe/Berlin] API Error: Database connection error Details: "No connection could be made because the target machine actively refused it"
+[20-Dec-2024 20:24:01 Europe/Berlin] API Error: Database connection error Details: "No connection could be made because the target machine actively refused it"
+[20-Dec-2024 20:24:31 Europe/Berlin] API Error: Database connection error Details: "No connection could be made because the target machine actively refused it"
+[20-Dec-2024 20:25:01 Europe/Berlin] API Error: Database connection error Details: "No connection could be made because the target machine actively refused it"
+[20-Dec-2024 20:25:22 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:25:22 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:25:52 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:25:52 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:26:22 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:26:22 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:26:52 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:26:52 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:27:22 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:27:22 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:27:52 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:27:52 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:28:22 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:28:22 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:28:52 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:28:52 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:29:22 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:29:22 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:29:52 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:29:52 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:30:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:30:13 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:30:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:30:43 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:31:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:31:13 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:31:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:31:43 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:32:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:32:13 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:32:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:32:43 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:33:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:33:13 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:33:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:33:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:34:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:34:08 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:34:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:34:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:35:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:35:08 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:35:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:35:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:36:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:36:08 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:36:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:36:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:36:57 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:36:57 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:37:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:37:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:37:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:37:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:38:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:38:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:38:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:38:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:39:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:39:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:39:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:39:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:40:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:40:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:40:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:40:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:41:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:41:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:41:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:41:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:42:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:42:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:42:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:42:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:43:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:43:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:43:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:43:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:44:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:44:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:44:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:44:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:45:27 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:45:27 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:45:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:45:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:46:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:46:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:46:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:46:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:47:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:47:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:47:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:47:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:48:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:48:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:48:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:48:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:49:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:49:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:49:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:49:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:50:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:50:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:50:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:50:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:51:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:51:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:51:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:51:57 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:52:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:52:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:52:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:52:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:53:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:53:26 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:53:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:53:56 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:54:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:54:16 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:54:51 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:54:51 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:55:21 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:55:21 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:55:51 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:55:51 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:56:21 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:56:21 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:57:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:57:08 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:57:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:57:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:58:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:58:08 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:58:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:58:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:59:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:59:08 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 20:59:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 20:59:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:00:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:00:08 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:00:35 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:00:35 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:01:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:01:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:01:34 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:01:34 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:02:04 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:02:04 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:02:34 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:02:34 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:03:04 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:03:04 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:03:44 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:03:44 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:04:14 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:04:14 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:04:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:04:43 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:05:14 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:05:14 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 21:05:43 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 21:05:43 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 22:56:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 22:56:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 22:56:35 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 22:56:35 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 22:57:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 22:57:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 22:57:35 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 22:57:35 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 22:58:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 22:58:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 22:58:35 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 22:58:35 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 22:59:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 22:59:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 22:59:35 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 22:59:35 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:00:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:00:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:00:35 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:00:35 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:01:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:01:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:01:35 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:01:35 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:02:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:02:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:02:35 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:02:35 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:03:05 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:03:05 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:03:24 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:03:24 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:03:54 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:03:54 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:04:24 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:04:24 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:04:54 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:04:54 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:05:24 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:05:24 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:05:54 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:05:54 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:06:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:06:38 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:07:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:07:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:07:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:07:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:08:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:08:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:08:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:08:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:09:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:09:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:09:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:09:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:10:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:10:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:10:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:10:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:11:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:11:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:11:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:11:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:12:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:12:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:12:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:12:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:13:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:13:08 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:13:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:13:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:14:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:14:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:14:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:14:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:15:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:15:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:15:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:15:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:16:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:16:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:16:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:16:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:17:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:17:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:17:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:17:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:18:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:18:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:18:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:18:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:19:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:19:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:19:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:19:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:20:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:20:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:20:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:20:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:21:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:21:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:21:37 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:21:37 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:22:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:22:07 Europe/Berlin] Successfully retrieved 4 appointments
+[20-Dec-2024 23:22:47 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[20-Dec-2024 23:22:47 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:04:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:04:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:05:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:05:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:05:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:05:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:06:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:06:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:06:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:06:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:07:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:07:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:07:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:07:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:08:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:08:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:08:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:08:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:09:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:09:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:09:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:09:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:10:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:10:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:10:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:10:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:11:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:11:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:11:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:11:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:12:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:12:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:12:36 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:12:36 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:13:06 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:13:06 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:13:42 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:13:42 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:14:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:14:11 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:14:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:14:41 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:15:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:15:11 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:15:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:15:41 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:16:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:16:11 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:16:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:16:41 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:17:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:17:11 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:17:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:17:41 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:18:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:18:11 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:18:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:18:41 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:19:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:19:11 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:19:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:19:41 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:20:11 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:20:11 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:20:41 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:20:41 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:20:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"pending","search":""}
+[21-Dec-2024 21:20:49 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:21:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:21:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:21:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:21:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:22:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:22:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:22:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:22:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:23:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:23:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:23:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:23:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:24:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:24:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:24:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:24:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:25:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:25:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:25:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:25:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:26:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:26:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:26:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:26:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:27:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:27:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:27:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:27:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:28:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:28:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:28:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:28:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:29:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:29:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:29:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:29:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:30:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:30:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:30:49 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:30:49 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:31:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:31:19 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:31:31 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:31:31 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:32:13 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:32:13 Europe/Berlin] Successfully retrieved 4 appointments
+[21-Dec-2024 21:32:21 Europe/Berlin] Incoming request parameters: {"type":"all","status":"pending","search":""}
+[21-Dec-2024 21:32:21 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:32:24 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:32:24 Europe/Berlin] Successfully retrieved 5 appointments
+[21-Dec-2024 21:32:28 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:32:28 Europe/Berlin] Successfully retrieved 5 appointments
+[21-Dec-2024 21:32:58 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:32:58 Europe/Berlin] Successfully retrieved 5 appointments
+[21-Dec-2024 21:33:28 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:33:28 Europe/Berlin] Successfully retrieved 5 appointments
+[21-Dec-2024 21:33:58 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:33:58 Europe/Berlin] Successfully retrieved 5 appointments
+[21-Dec-2024 21:34:28 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:34:28 Europe/Berlin] Successfully retrieved 5 appointments
+[21-Dec-2024 21:34:58 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:34:58 Europe/Berlin] Successfully retrieved 5 appointments
+[21-Dec-2024 21:35:39 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:35:39 Europe/Berlin] Successfully retrieved 5 appointments
+[21-Dec-2024 21:35:52 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[21-Dec-2024 21:35:52 Europe/Berlin] Successfully retrieved 2 appointments
+[21-Dec-2024 21:35:56 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 21:35:56 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:35:59 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[21-Dec-2024 21:35:59 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:36:08 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[21-Dec-2024 21:36:08 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:36:38 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[21-Dec-2024 21:36:38 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:37:09 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[21-Dec-2024 21:37:09 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:37:38 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[21-Dec-2024 21:37:38 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:38:09 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[21-Dec-2024 21:38:09 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:38:38 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[21-Dec-2024 21:38:38 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:38:41 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:38:41 Europe/Berlin] Successfully retrieved 0 appointments
+[21-Dec-2024 21:38:43 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"assigned","search":""}
+[21-Dec-2024 21:38:43 Europe/Berlin] Successfully retrieved 1 appointments
+[21-Dec-2024 21:38:50 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:38:50 Europe/Berlin] Successfully retrieved 0 appointments
+[21-Dec-2024 21:38:52 Europe/Berlin] Incoming request parameters: {"type":"all","status":"pending","search":""}
+[21-Dec-2024 21:38:52 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:38:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:38:56 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:39:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:39:08 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:39:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:39:38 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:40:09 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:40:09 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:40:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:40:38 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:41:09 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:41:09 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:41:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:41:38 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:42:09 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:42:09 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:42:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:42:38 Europe/Berlin] API Error: API Error Details: {"error_message":"Unknown column 'nr.status' in 'on clause'","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":252}
+[21-Dec-2024 21:42:53 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:42:59 Europe/Berlin] Incoming request parameters: {"type":"all","status":"pending","search":""}
+[21-Dec-2024 21:43:01 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:43:05 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"assigned","search":""}
+[21-Dec-2024 21:43:06 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"assigned","search":""}
+[21-Dec-2024 21:43:10 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"assigned","search":""}
+[21-Dec-2024 21:43:12 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:43:23 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:43:53 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:44:23 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:44:53 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:45:23 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:45:53 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:46:23 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:46:53 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"pending","search":""}
+[21-Dec-2024 21:47:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:47:55 Europe/Berlin] Incoming request parameters: {"type":"all","status":"pending","search":""}
+[21-Dec-2024 21:47:58 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:48:01 Europe/Berlin] Incoming request parameters: {"type":"all","status":"assigned","search":""}
+[21-Dec-2024 21:48:03 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:48:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:48:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:49:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:49:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:50:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:50:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:51:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:51:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:52:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:52:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:53:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:53:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:54:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:54:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:55:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:55:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:56:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:56:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:57:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:57:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:58:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:58:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:59:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 21:59:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:00:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:00:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:01:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:01:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:02:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:02:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:03:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:03:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:04:16 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:04:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:05:19 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:18:18 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:50:40 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:50:45 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:51:10 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:51:40 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:52:02 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[21-Dec-2024 22:52:05 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:52:32 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:53:02 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:53:32 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:54:02 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:54:32 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:55:02 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[21-Dec-2024 22:55:26 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[24-Dec-2024 10:11:38 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[24-Dec-2024 10:11:39 Europe/Berlin] API Error: API Error Details: {"error_message":"MySQL server has gone away","file":"C:\\xampp\\htdocs\\siteweb22\\API\\view_requests.php","line":272}
+[24-Dec-2024 10:12:50 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[24-Dec-2024 10:29:46 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[24-Dec-2024 10:37:44 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 10:12:15 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 10:12:45 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 10:13:15 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 10:18:01 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 10:18:07 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 10:18:08 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 10:19:31 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:27:27 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:27:57 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:28:27 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:28:57 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:29:27 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:39:57 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:39:59 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:40:02 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 13:53:47 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:16:25 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:16:55 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:17:25 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:17:55 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:18:25 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:20:55 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:20:56 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:21:00 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:21:25 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:21:55 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:22:25 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:22:42 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:23:11 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[30-Dec-2024 14:23:12 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[30-Dec-2024 14:23:29 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[30-Dec-2024 14:23:42 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[30-Dec-2024 14:24:12 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[30-Dec-2024 14:24:42 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[30-Dec-2024 14:25:12 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[30-Dec-2024 14:25:12 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:25:42 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:26:12 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:26:49 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:27:12 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:27:42 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:28:12 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:28:42 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:29:12 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:29:18 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:29:21 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:29:30 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:31:42 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:31:52 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:31:54 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:36:09 Europe/Berlin] Incoming request parameters: {"type":"all","status":"all","search":""}
+[30-Dec-2024 14:36:11 Europe/Berlin] Incoming request parameters: {"type":"doctor","status":"all","search":""}
+[30-Dec-2024 14:36:20 Europe/Berlin] Incoming request parameters: {"type":"nurse","status":"all","search":""}
+[30-Dec-2024 14:36:35 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}
+[30-Dec-2024 14:36:39 Europe/Berlin] Incoming request parameters: {"type":"garde_malade","status":"all","search":""}

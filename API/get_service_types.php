@@ -5,10 +5,7 @@ function exception_error_handler($severity, $message, $file, $line) {
 }
 set_error_handler("exception_error_handler");
 
-// Disable error reporting
 error_reporting(0);
-
-// Start output buffering
 ob_start();
 
 header("Content-Type: application/json");
@@ -20,12 +17,17 @@ try {
     require_once 'db_connection.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        $sql = "SELECT id_service_type, nom, has_fixed_price, fixed_price FROM service_types";
-        $result = $conn->query($sql);
-
-        if ($result === false) {
-            throw new Exception("Query failed: " . $conn->error);
-        }
+        $search = isset($_GET['search']) ? $_GET['search'] : '';
+        
+        $sql = "SELECT id_service_type, nom, has_fixed_price, fixed_price, active 
+                FROM service_types
+                WHERE nom LIKE ?";
+        
+        $stmt = $conn->prepare($sql);
+        $searchTerm = "%$search%";
+        $stmt->bind_param("s", $searchTerm);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             $services = array();
@@ -52,10 +54,7 @@ try {
     ];
 }
 
-// Clear the output buffer
 ob_end_clean();
-
-// Output the JSON response
 echo json_encode($response);
 
 if (isset($conn)) {

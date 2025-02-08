@@ -1,5 +1,16 @@
 <?php
+// =============== add_doctor_with_services.php ===============
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json');
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
 include 'db_connection.php';
 
 // Enable error reporting for debugging
@@ -18,6 +29,9 @@ error_log("Decoded data: " . print_r($data, true));
 try {
     $conn->begin_transaction();
 
+    // Hash the password before storing
+    $hashed_password = password_hash($data['mot_de_passe'], PASSWORD_DEFAULT);
+
     // Insert into docteur table
     $stmt = $conn->prepare("INSERT INTO docteur (nom, prenom, adresse, id_wilaya, id_commune, adresse_email, mot_de_passe, numero_telephone, consultation_domicile, consultation_cabinet, est_infirmier, est_gm, assistant, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssiisssiiiiis", 
@@ -27,7 +41,7 @@ try {
         $data['id_wilaya'], 
         $data['id_commune'], 
         $data['adresse_email'], 
-        $data['mot_de_passe'], 
+        $hashed_password,  // Using hashed password instead of plain text
         $data['numero_telephone'], 
         $data['consultation_domicile'], 
         $data['consultation_cabinet'], 
@@ -70,4 +84,3 @@ try {
 }
 
 $conn->close();
-?>

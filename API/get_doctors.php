@@ -1,56 +1,58 @@
 <?php
-// File: get_doctors.php
-
-header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: *");
+header("Content-Type: application/json");
 
 include 'db_connection.php';
 
-$type = isset($_GET['type']) ? $_GET['type'] : '';
+$type = isset($_GET['type']) ? $_GET['type'] : 'doctor';
+$ban_status = isset($_GET['ban_status']) ? $_GET['ban_status'] : 'all';
 
-if (empty($type)) {
-    echo json_encode(['success' => false, 'message' => 'Type parameter is required']);
-    exit;
-}
-
-$conditions = '';
-switch ($type) {
-    case 'doctor':
-        $conditions = 'est_infirmier = 0 AND est_gm = 0';
-        break;
-    case 'nurse':
-        $conditions = 'est_infirmier = 1 AND est_gm = 0';
-        break;
-    case 'gm':
-        $conditions = 'est_gm = 1';
-        break;
-    default:
-        echo json_encode(['success' => false, 'message' => 'Invalid type']);
-        exit;
-}
-
-$query = "SELECT d.id_doc, d.nom, d.prenom, d.adresse_email, d.adresse, c.nom_commune AS commune, w.nom_wilaya AS wilaya,
-          (SELECT COUNT(*) FROM rendez_vous WHERE id_doc = d.id_doc) AS appointments_count,
-          (SELECT COALESCE(SUM(p.montant), 0) FROM paiements p
-           JOIN rendez_vous r ON p.id_rendez_vous = r.id_rendez_vous
-           WHERE r.id_doc = d.id_doc) AS total_earnings
+// Base query
+$query = "SELECT d.*, 
+          COUNT(DISTINCT r.id_rendez_vous) as appointments_count,
+          COALESCE(SUM(p.montant), 0) as total_earnings
           FROM docteur d
-          LEFT JOIN commune c ON d.id_commune = c.id_commune
-          LEFT JOIN wilaya w ON d.id_wilaya = w.id_wilaya
-          WHERE $conditions";
+          LEFT JOIN rendez_vous r ON d.id_doc = r.id_doc
+          LEFT JOIN paiements p ON r.id_rendez_vous = p.id_rendez_vous
+          WHERE 1=1";
 
-$result = mysqli_query($conn, $query);
+if ($type == 'doctor') {
+    $query .= " AND d.est_infirmier = 0 AND d.est_gm = 0 AND d.assistant = 0";
+} elseif ($type == 'nurse') {
+    $query .= " AND d.est_infirmier = 1";
+} elseif ($type == 'gm') {
+    $query .= " AND d.est_gm = 1";
+} elseif ($type == 'assistant') {
+    $query .= " AND d.assistant = 1";
+}
+
+// Add ban status condition if specified
+if ($ban_status !== 'all') {
+    $is_banned = $ban_status === 'banned' ? 1 : 0;
+    $query .= " AND d.est_banni = $is_banned";
+}
+
+$query .= " GROUP BY d.id_doc";
+
+$result = $conn->query($query);
 
 if ($result) {
-    $doctors = [];
-    while ($row = mysqli_fetch_assoc($result)) {
+    $doctors = array();
+    while ($row = $result->fetch_assoc()) {
         $doctors[] = $row;
     }
-    echo json_encode(['success' => true, 'doctors' => $doctors]);
+    echo json_encode([
+        "success" => true,
+        "doctors" => $doctors
+    ]);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Failed to fetch doctors']);
+    echo json_encode([
+        "success" => false,
+        "message" => "Failed to fetch doctors"
+    ]);
 }
 
-mysqli_close($conn);
+$conn->close();
 ?>

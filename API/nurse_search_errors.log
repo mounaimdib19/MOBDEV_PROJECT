@@ -1,0 +1,26 @@
+[20-Dec-2024 20:36:58 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 20:54:19 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 20:54:33 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 20:54:53 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 20:55:14 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 20:55:30 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 20:55:30 Europe/Berlin] Nurse Search Error: Unexpected error {"error":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 30","file":"C:\\xampp\\htdocs\\siteweb22\\API\\search_nearby_nurses.php","line":117}
+[20-Dec-2024 20:57:10 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 21:00:37 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 21:01:35 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 21:03:45 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 22:56:07 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 23:03:26 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 23:06:39 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[20-Dec-2024 23:22:48 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[21-Dec-2024 21:04:38 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[21-Dec-2024 21:13:43 Europe/Berlin] Incoming parameters: {"requestId":"1","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[21-Dec-2024 22:52:07 Europe/Berlin] Incoming parameters: {"requestId":"3","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"1"}
+[24-Dec-2024 10:12:54 Europe/Berlin] Incoming parameters: {"requestId":"4","patientLat":"36.7538","patientLon":"3.0588","serviceTypeId":"3"}
+[30-Dec-2024 10:12:58 Europe/Berlin] Incoming parameters: {"requestId":"6","patientLat":"36.704487","patientLon":"4.069777","serviceTypeId":"10"}
+[30-Dec-2024 14:23:13 Europe/Berlin] Incoming parameters: {"requestId":"8","patientLat":"36.704502","patientLon":"4.069779","serviceTypeId":"1"}
+[30-Dec-2024 14:23:16 Europe/Berlin] Incoming parameters: {"requestId":"7","patientLat":"36.704499","patientLon":"4.069776","serviceTypeId":"50"}
+[30-Dec-2024 14:23:22 Europe/Berlin] Incoming parameters: {"requestId":"6","patientLat":"36.704487","patientLon":"4.069777","serviceTypeId":"10"}
+[30-Dec-2024 14:23:25 Europe/Berlin] Incoming parameters: {"requestId":"8","patientLat":"36.704502","patientLon":"4.069779","serviceTypeId":"1"}
+[30-Dec-2024 14:36:21 Europe/Berlin] Incoming parameters: {"requestId":"7","patientLat":"36.704499","patientLon":"4.069776","serviceTypeId":"50"}
+[30-Dec-2024 14:36:24 Europe/Berlin] Incoming parameters: {"requestId":"5","patientLat":"36.704569","patientLon":"4.069811","serviceTypeId":"1"}

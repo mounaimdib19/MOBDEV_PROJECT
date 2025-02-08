@@ -169,3 +169,917 @@ SERVER Data: Array
 )
 
 ---
+2024-12-08 16:48:59 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 7
+    [patient_latitude] => 36.6936533
+    [patient_longitude] => 2.8676958
+    [requested_time] => 2024-12-08T16:48:59.425
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_HOST] => 10.80.10.234
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 111
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ORIGIN] => http://localhost:54485
+    [HTTP_REFERER] => http://localhost:54485/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [PATH] => C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 10.80.10.234 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 10.80.10.234
+    [SERVER_ADDR] => 10.80.10.234
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 10.80.10.234
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 55035
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1733672939.4315
+    [REQUEST_TIME] => 1733672939
+)
+
+---
+2024-12-08 16:57:33 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 7
+    [patient_latitude] => 36.6936533
+    [patient_longitude] => 2.8676958
+    [requested_time] => 2024-12-08T16:57:33.743
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_HOST] => 10.80.10.234
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 111
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ORIGIN] => http://localhost:54485
+    [HTTP_REFERER] => http://localhost:54485/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [PATH] => C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 10.80.10.234 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 10.80.10.234
+    [SERVER_ADDR] => 10.80.10.234
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 10.80.10.234
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 55459
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1733673453.746
+    [REQUEST_TIME] => 1733673453
+)
+
+---
+2024-12-08 17:04:24 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 7
+    [patient_latitude] => 36.6936533
+    [patient_longitude] => 2.8676958
+    [requested_time] => 2024-12-08T17:04:24.529
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_HOST] => 10.80.10.234
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 111
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ORIGIN] => http://localhost:54485
+    [HTTP_REFERER] => http://localhost:54485/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [PATH] => C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 10.80.10.234 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 10.80.10.234
+    [SERVER_ADDR] => 10.80.10.234
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 10.80.10.234
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 55758
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1733673864.5326
+    [REQUEST_TIME] => 1733673864
+)
+
+---
+2024-12-08 17:08:38 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 7
+    [patient_latitude] => 36.6936533
+    [patient_longitude] => 2.8676958
+    [requested_time] => 2024-12-08T17:08:38.961
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_HOST] => 10.80.10.234
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 111
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ORIGIN] => http://localhost:54485
+    [HTTP_REFERER] => http://localhost:54485/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [PATH] => C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 10.80.10.234 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 10.80.10.234
+    [SERVER_ADDR] => 10.80.10.234
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 10.80.10.234
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 55976
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1733674118.9651
+    [REQUEST_TIME] => 1733674118
+)
+
+---
+2024-12-08 17:38:43 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 7
+    [patient_latitude] => 36.6936533
+    [patient_longitude] => 2.8676958
+    [requested_time] => 2024-12-08T17:38:43.191
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_HOST] => 10.80.10.234
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 111
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ORIGIN] => http://localhost:57581
+    [HTTP_REFERER] => http://localhost:57581/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [PATH] => C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 10.80.10.234 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 10.80.10.234
+    [SERVER_ADDR] => 10.80.10.234
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 10.80.10.234
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 57706
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1733675923.1956
+    [REQUEST_TIME] => 1733675923
+)
+
+---
+2024-12-13 18:24:02 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 16
+    [patient_latitude] => 36.7049897
+    [patient_longitude] => 4.0705608
+    [requested_time] => 2024-12-13T18:22:37.057211
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.4 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.117.69
+    [PATH] => C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.117.69 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.117.69
+    [SERVER_ADDR] => 192.168.117.69
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.117.193
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 41018
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1734110642.7937
+    [REQUEST_TIME] => 1734110642
+)
+
+---
+2024-12-15 13:20:37 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.6936533
+    [patient_longitude] => 2.8676958
+    [requested_time] => 2024-12-15T13:20:37.913
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_HOST] => 10.80.10.234
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_LENGTH] => 112
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT] => */*
+    [HTTP_ORIGIN] => http://localhost:52878
+    [HTTP_REFERER] => http://localhost:52878/
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 10.80.10.234 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 10.80.10.234
+    [SERVER_ADDR] => 10.80.10.234
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 10.80.10.234
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 54851
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1734265237.9195
+    [REQUEST_TIME] => 1734265237
+)
+
+---
+2024-12-22 03:27:32 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 17
+    [patient_latitude] => 36.7044565
+    [patient_longitude] => 4.0697644
+    [requested_time] => 2024-12-22T03:26:00.130722
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 48730
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1734834452.429
+    [REQUEST_TIME] => 1734834452
+)
+
+---
+2024-12-22 04:05:09 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 18
+    [patient_latitude] => 36.7045688
+    [patient_longitude] => 4.0698107
+    [requested_time] => 2024-12-22T04:03:37.466664
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 58716
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1734836709.7938
+    [REQUEST_TIME] => 1734836709
+)
+
+---
+2024-12-28 15:13:17 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.7044871
+    [patient_longitude] => 4.0697773
+    [requested_time] => 2024-12-28T15:11:43.516787
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm;C:\Users\dell\AppData\Local\Pub\Cache\bin;C:\Users\dell\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\xampp\php;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 58496
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1735395197.1346
+    [REQUEST_TIME] => 1735395197
+)
+
+---
+2024-12-30 13:50:30 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.7044583
+    [patient_longitude] => 4.0697653
+    [requested_time] => 2024-12-30T13:48:52.721833
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm;C:\Users\dell\AppData\Local\Pub\Cache\bin;C:\Users\dell\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\xampp\php;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 39096
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1735563030.8979
+    [REQUEST_TIME] => 1735563030
+)
+
+---
+2024-12-30 13:51:13 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.7044904
+    [patient_longitude] => 4.0697813
+    [requested_time] => 2024-12-30T13:49:35.466706
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm;C:\Users\dell\AppData\Local\Pub\Cache\bin;C:\Users\dell\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\xampp\php;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 60718
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1735563073.88
+    [REQUEST_TIME] => 1735563073
+)
+
+---
+2024-12-30 13:53:01 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.7045072
+    [patient_longitude] => 4.0697807
+    [requested_time] => 2024-12-30T13:51:23.173747
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm;C:\Users\dell\AppData\Local\Pub\Cache\bin;C:\Users\dell\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\xampp\php;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 39490
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1735563181.5632
+    [REQUEST_TIME] => 1735563181
+)
+
+---
+2024-12-30 13:53:08 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.7045072
+    [patient_longitude] => 4.0697807
+    [requested_time] => 2024-12-30T13:51:30.205064
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm;C:\Users\dell\AppData\Local\Pub\Cache\bin;C:\Users\dell\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\xampp\php;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 47704
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1735563188.8914
+    [REQUEST_TIME] => 1735563188
+)
+
+---
+2024-12-30 13:54:06 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.7044942
+    [patient_longitude] => 4.0697826
+    [requested_time] => 2024-12-30T13:52:28.635794
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm;C:\Users\dell\AppData\Local\Pub\Cache\bin;C:\Users\dell\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\xampp\php;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 47042
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1735563246.782
+    [REQUEST_TIME] => 1735563246
+)
+
+---
+2024-12-30 14:11:03 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.7044532
+    [patient_longitude] => 4.0697658
+    [requested_time] => 2024-12-30T14:09:25.371123
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm;C:\Users\dell\AppData\Local\Pub\Cache\bin;C:\Users\dell\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\xampp\php;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 39980
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1735564263.571
+    [REQUEST_TIME] => 1735564263
+)
+
+---
+2024-12-30 14:11:25 - Incoming Request
+POST Data: Array
+(
+    [id_patient] => 12
+    [patient_latitude] => 36.7044953
+    [patient_longitude] => 4.0697675
+    [requested_time] => 2024-12-30T14:09:47.193616
+)
+SERVER Data: Array
+(
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_USER_AGENT] => Dart/3.6 (dart:io)
+    [CONTENT_TYPE] => application/x-www-form-urlencoded; charset=utf-8
+    [HTTP_ACCEPT_ENCODING] => gzip
+    [CONTENT_LENGTH] => 115
+    [HTTP_HOST] => 192.168.100.16
+    [PATH] => C:\Users\dell\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\dell\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Graphviz\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\dell\AppData\Local\Microsoft\WindowsApps;C:\Users\dell\AppData\Local\spicetify;C:\Users\dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dell\AppData\Local\GitHubDesktop\bin;C:\src\flutter\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\Android\Android Studio\cmdline-tools\latest-2\bin;C:\Users\dell\AppData\Roaming\npm;C:\Users\dell\AppData\Local\Pub\Cache\bin;C:\Users\dell\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\xampp\php;
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => <address>Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12 Server at 192.168.100.16 Port 80</address>
+
+    [SERVER_SOFTWARE] => Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12
+    [SERVER_NAME] => 192.168.100.16
+    [SERVER_ADDR] => 192.168.100.16
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 192.168.100.15
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/siteweb22/API/create_doctor_request.php
+    [REMOTE_PORT] => 59146
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /siteweb22/API/create_doctor_request.php
+    [SCRIPT_NAME] => /siteweb22/API/create_doctor_request.php
+    [PHP_SELF] => /siteweb22/API/create_doctor_request.php
+    [REQUEST_TIME_FLOAT] => 1735564285.3227
+    [REQUEST_TIME] => 1735564285
+)
+
+---

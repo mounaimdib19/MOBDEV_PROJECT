@@ -1,26 +1,21 @@
 <?php
-// admin_login.php
-
 // Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Include database connection
+require_once 'db_connection.php';
+
 // Allow cross-origin requests (adjust as needed for security)
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=UTF-8");
 
-// Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mabase";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die(json_encode(array("success" => false, "message" => "Connection failed: " . $conn->connect_error)));
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
 }
 
 // Check if the request method is POST
@@ -30,24 +25,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['mot_de_passe'];
 
     // Prepare SQL statement to prevent SQL injection
-    $stmt = $conn->prepare("SELECT id_admin, type FROM administrateur WHERE adresse_email = ? AND mot_de_passe = ?");
-    $stmt->bind_param("ss", $email, $password);
+    $stmt = $conn->prepare("SELECT id_admin, type, mot_de_passe FROM administrateur WHERE adresse_email = ?");
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Login successful
         $row = $result->fetch_assoc();
-        echo json_encode(array("success" => true, "message" => "Login successful", "id_admin" => $row['id_admin'], "type" => $row['type']));
+        // Verify the password against the stored hash
+        if (password_verify($password, $row['mot_de_passe'])) {
+            // Login successful
+            echo json_encode(array(
+                "success" => true, 
+                "message" => "Login successful", 
+                "id_admin" => $row['id_admin'], 
+                "type" => $row['type']
+            ));
+        } else {
+            // Password doesn't match
+            echo json_encode(array(
+                "success" => false, 
+                "message" => "Invalid email or password"
+            ));
+        }
     } else {
-        // Login failed
-        echo json_encode(array("success" => false, "message" => "Invalid email or password"));
+        // Email not found
+        echo json_encode(array(
+            "success" => false, 
+            "message" => "Invalid email or password"
+        ));
     }
 
     $stmt->close();
 } else {
     // If not a POST request
-    echo json_encode(array("success" => false, "message" => "Invalid request method"));
+    echo json_encode(array(
+        "success" => false, 
+        "message" => "Invalid request method"
+    ));
 }
 
 $conn->close();
