@@ -1,11 +1,9 @@
-// admin_login_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../services/admin_session_manager.dart';
 import 'admin_dashboard_screen.dart';
 import '../config/environment.dart';
-
 
 class AdminLoginScreen extends StatefulWidget {
   const AdminLoginScreen({super.key});
@@ -16,42 +14,88 @@ class AdminLoginScreen extends StatefulWidget {
 
 class _AdminLoginScreenState extends State<AdminLoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  String _email = '';
-  String _password = '';
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  bool _isLoading = false;
+  bool _obscurePassword = true;
 
-  Future<void> _login() async {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
+  @override
+  void initState() {
+    super.initState();
+    _checkLoginStatus();
+  }
 
-      final response = await http.post(
-        Uri.parse(Environment.adminlogin()),
-        body: {
-          'adresse_email': _email,
-          'mot_de_passe': _password,
-        },
-      );
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
-      if (response.statusCode == 200) {
-        final result = json.decode(response.body);
-        if (result['success']) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Admin login successful!')),
-          );
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (context) => AdminWelcomeScreen(id_admin: result['id_admin']),
-            ),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login failed: ${result['message']}')),
-          );
-        }
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Error connecting to the server')),
+Future<void> _checkLoginStatus() async {
+    if (await AdminSessionManager.isLoggedIn()) {
+      final adminId = await AdminSessionManager.getAdminId();
+      if (adminId != null && mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => AdminWelcomeScreen(idAdmin: adminId), // Changed from id_admin
+          ),
         );
       }
+    }
+  }
+
+Future<void> _login() async {
+  if (!_formKey.currentState!.validate()) return;
+
+  setState(() => _isLoading = true);
+  try {
+    final response = await http.post(
+      Uri.parse(Environment.adminlogin()),
+      body: {
+        'adresse_email': _emailController.text,
+        'mot_de_passe': _passwordController.text,
+      },
+    );
+
+    final result = json.decode(response.body);
+
+    if (response.statusCode == 200 && result['success']) {
+      final adminId = int.parse(result['id_admin'].toString());
+      
+      await AdminSessionManager.createSession(
+        adminId,
+        _emailController.text,
+      );
+
+      if (!mounted) return;
+
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => AdminWelcomeScreen(idAdmin: adminId), // Changed from id_admin
+        ),
+      );
+    } else {
+        if (!mounted) return;
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(result['message'] ?? 'Login failed'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (e) {
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Error connecting to the server'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 
@@ -68,9 +112,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
               ),
             ),
           ),
-          Container(
-            color: Colors.black.withOpacity(0.5),
-          ),
+          Container(color: Colors.black.withOpacity(0.5)),
           Center(
             child: SingleChildScrollView(
               child: Container(
@@ -93,7 +135,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
-                        'Admin Login',
+                        'Se connecter admin',
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
@@ -101,22 +143,57 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      _buildTextFormField('Email', (value) => _email = value!, keyboardType: TextInputType.emailAddress),
-                      _buildTextFormField('Password', (value) => _password = value!, obscureText: true),
-                      const SizedBox(height: 30),
-                      ElevatedButton(
-                        onPressed: _login,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF1B5A90),
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                          textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                      TextFormField(
+                        controller: _emailController,
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          prefixIcon: const Icon(Icons.email),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                          elevation: 5,
                         ),
-                        child: const Text('Login'),
+                        keyboardType: TextInputType.emailAddress,
+                        validator: (value) => value?.isEmpty ?? true 
+                          ? 'Please enter your email' 
+                          : null,
+                      ),
+                      const SizedBox(height: 20),
+                      TextFormField(
+                        controller: _passwordController,
+                        decoration: InputDecoration(
+                          labelText: 'Mot de passe',
+                          prefixIcon: const Icon(Icons.lock),
+                          suffixIcon: IconButton(
+                            icon: Icon(_obscurePassword 
+                              ? Icons.visibility_off 
+                              : Icons.visibility),
+                            onPressed: () => setState(() => 
+                              _obscurePassword = !_obscurePassword),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        obscureText: _obscurePassword,
+                        validator: (value) => value?.isEmpty ?? true 
+                          ? 'Please enter your password' 
+                          : null,
+                      ),
+                      const SizedBox(height: 30),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: _isLoading ? null : _login,
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                          ),
+                          child: _isLoading
+                            ? const CircularProgressIndicator()
+                            : const Text('Login'),
+                        ),
                       ),
                     ],
                   ),
@@ -128,38 +205,5 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
       ),
     );
   }
-
-  Widget _buildTextFormField(String label, Function(String?) onSaved, {bool obscureText = false, TextInputType? keyboardType}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: TextFormField(
-        decoration: InputDecoration(
-          labelText: label,
-          labelStyle: const TextStyle(color: Color(0xFF34495E)),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(color: Color(0xFF1B5A90)),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(color: Color(0xFF1B5A90)),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: const BorderSide(color: Color(0xFF1B5A90), width: 2),
-          ),
-          filled: true,
-          fillColor: Colors.white,
-          prefixIcon: Icon(
-            label == 'Email' ? Icons.email : Icons.lock,
-            color: const Color(0xFF1B5A90),
-          ),
-        ),
-        obscureText: obscureText,
-        keyboardType: keyboardType,
-        validator: (value) => value!.isEmpty ? 'Please enter your $label' : null,
-        onSaved: onSaved,
-      ),
-    );
-  }
 }
+

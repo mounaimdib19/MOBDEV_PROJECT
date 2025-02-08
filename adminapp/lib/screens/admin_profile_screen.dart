@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../config/environment.dart';
-
+import '../services/admin_session_manager.dart';
 
 class AdminProfileScreen extends StatefulWidget {
-  final int id_admin;
+  final int idAdmin;
 
-  const AdminProfileScreen({super.key, required this.id_admin});
+  const AdminProfileScreen({super.key, required this.idAdmin});
 
   @override
   _AdminProfileScreenState createState() => _AdminProfileScreenState();
@@ -18,6 +18,7 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
   final _formKey = GlobalKey<FormState>();
   bool _obscurePassword = true;
   final TextEditingController _passwordController = TextEditingController();
+  bool _isPasswordModified = false;
 
   @override
   void initState() {
@@ -28,7 +29,10 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
   Future<void> _fetchAdminInfo() async {
     try {
       final response = await http.get(
-        Uri.parse(Environment.getadminprofile(widget.id_admin)),
+        Uri.parse(Environment.getadminprofile(widget.idAdmin)),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       );
 
       if (response.statusCode == 200) {
@@ -36,16 +40,24 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
         if (data['success']) {
           setState(() {
             _adminData = Map<String, dynamic>.from(data['data']);
-            _passwordController.text = _adminData['mot_de_passe'] ?? '';
+            // Don't set password in the text controller
+            _passwordController.clear();
           });
         } else {
-          print('API returned success: false. Message: ${data['message']}');
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(data['message'] ?? 'Failed to load profile data')),
+            );
+          }
         }
-      } else {
-        print('Failed to load admin data. Status code: ${response.statusCode}');
       }
     } catch (e) {
       print('Error fetching admin info: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Error loading profile data')),
+        );
+      }
     }
   }
 
@@ -56,52 +68,40 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
       try {
         final response = await http.post(
           Uri.parse(Environment.updateadminprofile()),
-          body: {
-            'id_admin': widget.id_admin.toString(),
-            'nom': _adminData['nom'] ?? '',
-            'prenom': _adminData['prenom'] ?? '',
-            'adresse_email': _adminData['adresse_email'] ?? '',
-            'mot_de_passe': _passwordController.text,
-          },
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode({
+            'idAdmin': widget.idAdmin,
+            'nom': _adminData['nom'],
+            'prenom': _adminData['prenom'],
+            'adresse_email': _adminData['adresse_email'],
+            // Only send password if it was modified
+            if (_isPasswordModified) 'mot_de_passe': _passwordController.text,
+          }),
         );
 
-        print('Response status: ${response.statusCode}');
-        print('Response body: ${response.body}');
-
         if (response.statusCode == 200) {
-          try {
-            var data = json.decode(response.body);
-            if (data['success']) {
+          var data = json.decode(response.body);
+          if (data['success']) {
+            if (mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Profile updated successfully')),
               );
-              setState(() {
-                _adminData = Map<String, dynamic>.from(data['data']);
-                _passwordController.text = _adminData['mot_de_passe'] ?? '';
-              });
-            } else {
+            }
+          } else {
+            if (mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Failed to update profile: ${data['message']}')),
+                SnackBar(content: Text(data['message'] ?? 'Failed to update profile')),
               );
             }
-          } catch (e) {
-            print('Error decoding JSON: $e');
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('An error occurred while processing the server response')),
-            );
           }
-        } else {
-          print('Failed to update profile. Status code: ${response.statusCode}');
+        }
+      } catch (e) {
+        print('Error updating profile: $e');
+        if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Failed to update profile. Server returned an error.')),
+            const SnackBar(content: Text('Error updating profile')),
           );
         }
-      } catch (e, stackTrace) {
-        print('Error updating profile: $e');
-        print('Stack trace: $stackTrace');
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('An error occurred while updating the profile')),
-        );
       }
     }
   }
@@ -124,13 +124,13 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
                   children: [
                     TextFormField(
                       initialValue: _adminData['nom'],
-                      decoration: const InputDecoration(labelText: 'Last Name'),
+                      decoration: const InputDecoration(labelText: 'Nom'),
                       validator: (value) => value!.isEmpty ? 'Please enter your last name' : null,
                       onSaved: (value) => _adminData['nom'] = value,
                     ),
                     TextFormField(
                       initialValue: _adminData['prenom'],
-                      decoration: const InputDecoration(labelText: 'First Name'),
+                      decoration: const InputDecoration(labelText: 'Prenom'),
                       validator: (value) => value!.isEmpty ? 'Please enter your first name' : null,
                       onSaved: (value) => _adminData['prenom'] = value,
                     ),
@@ -143,7 +143,7 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
                     TextFormField(
                       controller: _passwordController,
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText: 'Nouveau mot de passe (laisser vide pour ne pas changer)',
                         suffixIcon: IconButton(
                           icon: Icon(_obscurePassword ? Icons.visibility_off : Icons.visibility),
                           onPressed: () {
@@ -154,18 +154,24 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
                         ),
                       ),
                       obscureText: _obscurePassword,
-                      validator: (value) => value!.isEmpty ? 'Please enter your password' : null,
+                      onChanged: (value) {
+                        setState(() {
+                          _isPasswordModified = value.isNotEmpty;
+                        });
+                      },
                     ),
                     const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: _updateProfile,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5A90),
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                        textStyle: const TextStyle(fontSize: 18),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: _updateProfile,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF1B5A90),
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                          textStyle: const TextStyle(fontSize: 18),
+                        ),
+                        child: const Text('Mettre a jour Profile'),
                       ),
-                      child: const Text('Update Profile'),
                     ),
                   ],
                 ),

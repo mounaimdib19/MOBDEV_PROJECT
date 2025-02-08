@@ -4,12 +4,10 @@ import 'dart:convert';
 import 'admin_bottom_nav_bar.dart';
 import 'dart:async';
 import 'view_patients_screen.dart';
-import 'delete_service_screen.dart';
-import 'delete_doctor_screen.dart';
-import 'delete_administrator_screen.dart';
-import 'delete_patient_screen.dart';
+import 'view_appointments_screen.dart';
 import 'add_patient_screen.dart';
 import 'view_administrators_screen.dart';
+import 'view_requests_screen.dart';
 import 'add_administrator_screen.dart';
 import 'view_doctors_screen.dart';
 import 'add_doctor_screen.dart';
@@ -18,13 +16,12 @@ import 'add_service_screen.dart';
 import 'view_assistants_screen.dart';
 import 'admin_profile_screen.dart';
 import '../config/environment.dart';
-
-
+import 'specialty_management_screen.dart';
 
 class AdminWelcomeScreen extends StatefulWidget {
-  final int id_admin;
+  final int idAdmin;
 
-  const AdminWelcomeScreen({super.key, required this.id_admin});
+  const AdminWelcomeScreen({super.key, required this.idAdmin});
 
   @override
   _AdminWelcomeScreenState createState() => _AdminWelcomeScreenState();
@@ -36,6 +33,7 @@ class _AdminWelcomeScreenState extends State<AdminWelcomeScreen> {
   int _currentIndex = 0;
   Timer? _statusUpdateTimer;
   String _adminType = '';
+  final List<bool> _isExpanded = List.generate(6, (_) => false);
 
   @override
   void initState() {
@@ -46,7 +44,7 @@ class _AdminWelcomeScreenState extends State<AdminWelcomeScreen> {
 
   @override
   void dispose() {
-    _stopStatusUpdateTimer();
+    _statusUpdateTimer?.cancel();
     super.dispose();
   }
 
@@ -56,20 +54,11 @@ class _AdminWelcomeScreenState extends State<AdminWelcomeScreen> {
     });
   }
 
-  void _stopStatusUpdateTimer() {
-    _statusUpdateTimer?.cancel();
-    _statusUpdateTimer = null;
-  }
-
-   Future<void> _fetchAdminInfo() async {
+  Future<void> _fetchAdminInfo() async {
     try {
       final response = await http.get(
-        Uri.parse(
-            Environment.getadmininfo(widget.id_admin)),
+        Uri.parse(Environment.getadmininfo(widget.idAdmin)),
       );
-
-      print('Response status: ${response.statusCode}');
-      print('Response body: ${response.body}');
 
       if (response.statusCode == 200) {
         var data = json.decode(response.body);
@@ -77,35 +66,22 @@ class _AdminWelcomeScreenState extends State<AdminWelcomeScreen> {
           setState(() {
             _adminName = '${data['prenom']} ${data['nom']}';
             _isActive = data['statut'] == 'active';
-            _adminType = data['type']; // Store the admin type
+            _adminType = data['type'];
           });
-        } else {
-          print('API returned success: false. Message: ${data['message']}');
         }
-      } else {
-        print('API request failed with status: ${response.statusCode}');
       }
     } catch (e) {
       print('Error fetching admin info: $e');
-      if (e is FormatException) {
-        print('Response was not valid JSON. Raw response: ${e.source}');
-      }
     }
-  }
-  
-
-  bool _isSuperAdmin() {
-    return _adminType.toLowerCase() == 'superadmin';
   }
 
   Future<void> _toggleStatus() async {
     try {
       final response = await http.post(
-        Uri.parse(
-           Environment.toggleadminstatus()),
+        Uri.parse(Environment.toggleadminstatus()),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
-          'id_admin': widget.id_admin,
+          'id_admin': widget.idAdmin,
           'statut': _isActive ? 'inactive' : 'active',
         }),
       );
@@ -116,117 +92,74 @@ class _AdminWelcomeScreenState extends State<AdminWelcomeScreen> {
           setState(() {
             _isActive = data['new_status'] == 'active';
           });
-        } else {
-          print('Failed to toggle status: ${data['message']}');
         }
-      } else {
-        print('API request failed with status: ${response.statusCode}');
       }
     } catch (e) {
       print('Error toggling status: $e');
     }
   }
 
-  void _navigateToScreen(String screen) {
-    switch (screen) {
-      case 'View Patients':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ViewPatientsScreen()),
-        );
-        break;
-      case 'Add Patient':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const AddPatientScreen()),
-        );
-        break;
-      case 'View Administrators':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ViewAdministratorsScreen()),
-        );
-        break;
-      case 'Add Administrator':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const AddAdministratorScreen()),
-        );
-        break;
-      case 'View Services':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const DisplayServicesScreen()),
-        );
-        break;
-      case 'Add Service':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const AddServicesScreen()),
-        );
-        break;
-      case 'View Doctors':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ViewDoctorsScreen(type: 'doctor')),
-        );
-        break;
-      case 'View Nurses':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ViewDoctorsScreen(type: 'nurse')),
-        );
-        break;
-      case 'View Gardes Malades':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ViewDoctorsScreen(type: 'gm')),
-        );
-        break;
-      case 'View Assistants':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ViewAssistantsScreen()),
-        );
-        break;
-      case 'Add Doctor':
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const AddDoctorScreen()),
-        );
-        break;
-      default:
-        print('Navigating to $screen');
-    }
-  }
+  bool _isSuperAdmin() => _adminType.toLowerCase() == 'superadmin';
 
-   void _onBottomNavTap(int index) {
+  void _onBottomNavTap(int index) {
     setState(() {
       _currentIndex = index;
     });
-    switch (index) {
-      case 0:
-        // Dashboard (current screen)
-        break;
-      case 1:
-        // Navigate to AdminProfileScreen
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => AdminProfileScreen(id_admin: widget.id_admin),
-          ),
-        );
-        break;
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AdminProfileScreen(idAdmin: widget.idAdmin),
+        ),
+      );
+    }
+  }
+
+  void _navigateToScreen(String screenName) {
+    final routes = {
+      'Afficher les patients': const ViewPatientsScreen(),
+      'Ajouter Patient': const AddPatientScreen(),
+      'Afficher les demandes': const ViewRequestsScreen(),
+      'Afficher les administrateurs': const ViewAdministratorsScreen(),
+      'Ajouter un administrateur': const AddAdministratorScreen(),
+      'Afficher les Services': const DisplayServicesScreen(),
+      'Afficher les rendez-vous': const ViewAppointmentsScreen(),
+      'Ajouter un Service': const AddServicesScreen(),
+      'Afficher les médecins': const ViewDoctorsScreen(type: 'doctor'),
+      'Afficher les infirmières': const ViewDoctorsScreen(type: 'nurse'),
+      'Afficher les gardes malades': const ViewDoctorsScreen(type: 'gm'),
+      'Afficher les assistants': const ViewAssistantsScreen(),
+      'Ajouter un médecin': const AddDoctorScreen(),
+      'Gérer les spécialités': const SpecialtyManagementScreen(),
+    };
+
+    final targetScreen = routes[screenName];
+    if (targetScreen != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => targetScreen),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Admin Dashboard'),
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.indigo,
+      backgroundColor: const Color(0xFFF5F7FF),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(60.0),
+        child: AppBar(
+          backgroundColor: const Color(0xFF2C3E50),
+          elevation: 0,
+          title: const Text(
+            'Tableau de bord administrateur',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -234,255 +167,255 @@ class _AdminWelcomeScreenState extends State<AdminWelcomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Welcome, $_adminName',
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.indigo),
-              ),
-              const SizedBox(height: 20),
-              Card(
-                elevation: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Status: ${_isActive ? 'Active' : 'Inactive'}',
-                        style: TextStyle(fontSize: 18, color: _isActive ? Colors.green : Colors.red),
-                      ),
-                      Switch(
-                        value: _isActive,
-                        onChanged: (value) {
-                          _toggleStatus();
-                        },
-                        activeColor: Colors.green,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              if (_isSuperAdmin()) ...[
-                _buildSectionTitle('Service Management'),
-                _buildButtonRow('View Services', 'Add Service'),
-                _buildDeleteButton('Delete Service'),
-                const SizedBox(height: 20),
-              ],
-              _buildSectionTitle('Patient Management'),
-              _buildButtonRow('View Patients', 'Add Patient'),
-              _buildDeleteButton('Delete Patient'),
-              const SizedBox(height: 20),
-              _buildSectionTitle('Appointment Management'),
-              _buildButtonRow('View Appointments', 'Add Appointment'),
-              const SizedBox(height: 20),
-              if (_isSuperAdmin()) ...[
-                _buildSectionTitle('Administrator Management'),
-                _buildButtonRow('View Administrators', 'Add Administrator'),
-                _buildDeleteButton('Delete Administrator'),
-                const SizedBox(height: 20),
-              ],
-              _buildHealthcareProfessionalManagementSection(),
+              _buildWelcomeSection(),
+              const SizedBox(height: 24),
+              _buildMainDashboard(),
             ],
           ),
         ),
       ),
       bottomNavigationBar: AdminBottomNavBar(
         currentIndex: _currentIndex,
-        onTap: _onBottomNavTap,
+        idAdmin: widget.idAdmin,
       ),
     );
   }
 
-  Widget _buildSectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Text(
-        title,
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.indigo),
+  Widget _buildWelcomeSection() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF2C3E50), Color(0xFF3498DB)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.blue.withOpacity(0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Bienvenue,',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white70,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  _adminName,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  _adminType.toUpperCase(),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.white70,
+                    letterSpacing: 1,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          _buildStatusToggle(),
+        ],
       ),
     );
   }
 
-  Widget _buildButtonRow(String leftButtonText, String rightButtonText) {
-    return Row(
+  Widget _buildStatusToggle() {
+    return GestureDetector(
+      onTap: _toggleStatus,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: _isActive ? Colors.green.withOpacity(0.2) : Colors.red.withOpacity(0.2),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 8,
+              height: 8,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _isActive ? Colors.green[300] : Colors.red[300],
+              ),
+            ),
+            const SizedBox(width: 6),
+            Text(
+              _isActive ? 'Active' : 'Inactive',
+              style: TextStyle(
+                color: _isActive ? Colors.green[100] : Colors.red[100],
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMainDashboard() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: ElevatedButton(
-            onPressed: () => _navigateToScreen(leftButtonText),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.teal,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            child: Text(leftButtonText),
+        const Text(
+          'Console de gestion',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF2C3E50),
           ),
         ),
-        const SizedBox(width: 16),
-        Expanded(
-          child: ElevatedButton(
-            onPressed: () => _navigateToScreen(rightButtonText),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.orange,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            child: Text(rightButtonText),
-          ),
-        ),
+        const SizedBox(height: 16),
+        _buildDashboardList(),
       ],
     );
   }
 
-  Widget _buildDeleteButton(String buttonText) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 8.0),
-    child: ElevatedButton(
-      onPressed: () {
-        switch (buttonText) {
-          case 'Delete Doctor':
-            Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const DeleteDoctorScreen()),
-      );
-            break;
-          case 'Delete Administrator':
-            Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const DeleteAdministratorScreen()),
-      );
-            break;
-          case 'Delete Patient':
-            Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const DeletePatientScreen()),
-      );
-            break;
-           case 'Delete Service':
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const DeleteServiceScreen()),
-      );
-      break;
-          default:
-            print('Unhandled delete action: $buttonText');
-        }
-      },
+  Widget _buildDashboardList() {
+    final sections = [
+      if (_isSuperAdmin())
+        _buildSection(
+          0,
+          'Gestion des services',
+          Icons.medical_services,
+          const Color(0xFF3498DB),
+          ['Afficher les Services', 'Ajouter un Service'],
+        ),
+      _buildSection(
+        1,
+        'Gestion de patient',
+        Icons.people,
+        const Color(0xFF2ECC71),
+        ['Afficher les patients', 'Ajouter Patient'],
+      ),
+      _buildSection(
+        2,
+        'Gestion des demandes',
+        Icons.assignment,
+        const Color(0xFFE74C3C),
+        ['Afficher les demandes'],
+      ),
+      _buildSection(
+        3,
+        'Gestion des rendez-vous',
+        Icons.calendar_today,
+        const Color(0xFF9B59B6),
+        ['Afficher les rendez-vous'],
+      ),
+      if (_isSuperAdmin())
+        _buildSection(
+          4,
+          'Gestion des administrateurs',
+          Icons.admin_panel_settings,
+          const Color(0xFFF39C12),
+          ['Afficher les administrateurs', 'Ajouter un administrateur'],
+        ),
+      _buildSection(
+        5,
+        'Gestion des professionnels de santé',
+        Icons.health_and_safety,
+        const Color(0xFF1ABC9C),
+        ['Afficher les médecins', 'Afficher les infirmières', 'Afficher les gardes malades', 'Afficher les assistants', 'Ajouter un médecin', 'Gérer les spécialités'],
+      ),
+    ];
+
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: sections.length,
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.only(bottom: 16),
+        child: sections[index],
+      ),
+    );
+  }
+
+  Widget _buildSection(int index, String title, IconData icon, Color color, List<String> actions) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          initiallyExpanded: _isExpanded[index],
+          onExpansionChanged: (expanded) {
+            setState(() {
+              _isExpanded[index] = expanded;
+            });
+          },
+          leading: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Icon(icon, color: color),
+          ),
+          title: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF2C3E50),
+            ),
+          ),
+          children: [
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              padding: const EdgeInsets.all(16),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: actions.map((action) => _buildActionButton(action, color)).toList(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildActionButton(String action, Color color) {
+    return ElevatedButton(
+      onPressed: () => _navigateToScreen(action),
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.red,
+        backgroundColor: color,
         foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
       ),
-      child: Text(buttonText),
-    ),
-  );
-}
-
-
-  Widget _buildHealthcareProfessionalManagementSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildSectionTitle('Healthcare Professional Management'),
-        ElevatedButton(
-          onPressed: () => _navigateToScreen('View Doctors'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.teal,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          child: const Text('View Doctors'),
+      child: Text(
+        action,
+        style: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
         ),
-        const SizedBox(height: 8),
-        ElevatedButton(
-          onPressed: () => _navigateToScreen('View Nurses'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.teal,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          child: const Text('View Nurses'),
-        ),
-        const SizedBox(height: 8),
-        ElevatedButton(
-          onPressed: () => _navigateToScreen('View Gardes Malades'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.teal,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          child: const Text('View Gardes Malades'),
-        ),
-        const SizedBox(height: 8),
-        ElevatedButton(
-          onPressed: () => _navigateToScreen('View Assistants'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.teal,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          child: const Text('View Assistants'),
-        ),
-        const SizedBox(height: 16),
-        ElevatedButton(
-          onPressed: () => _navigateToScreen('Add Doctor'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.orange,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          child: const Text('Add Healthcare Professional'),
-        ),
-        const SizedBox(height: 16),
-        ElevatedButton(
-          onPressed: () => _navigateToScreen('Add Doctor'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.orange,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          child: const Text('Add Healthcare Professional'),
-        ),
-        const SizedBox(height: 8),
-        ElevatedButton(
-          onPressed: () => _navigateToScreen('Delete Healthcare Professional'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.red,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          child: const Text('Delete Healthcare Professional'),
-        ),
-      ],
+      ),
     );
   }
 }

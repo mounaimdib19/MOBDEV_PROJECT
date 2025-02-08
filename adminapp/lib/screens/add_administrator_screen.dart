@@ -40,7 +40,7 @@ class _AddAdministratorScreenState extends State<AddAdministratorScreen> {
         final result = json.decode(response.body);
         if (result['success']) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Administrator added successfully')),
+            const SnackBar(content: Text('Administrateur ajouté avec succès')),
           );
           Navigator.pop(context);
         } else {
@@ -60,7 +60,7 @@ class _AddAdministratorScreenState extends State<AddAdministratorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Administrator'),
+        title: const Text('Ajouter un administrateur'),
         backgroundColor: Colors.indigo,
       ),
       body: SingleChildScrollView(
@@ -71,12 +71,12 @@ class _AddAdministratorScreenState extends State<AddAdministratorScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
-                decoration: const InputDecoration(labelText: 'First Name'),
+                decoration: const InputDecoration(labelText: 'Prenom'),
                 validator: (value) => value!.isEmpty ? 'Please enter first name' : null,
                 onSaved: (value) => prenom = value!,
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Last Name'),
+                decoration: const InputDecoration(labelText: 'Nom'),
                 validator: (value) => value!.isEmpty ? 'Please enter last name' : null,
                 onSaved: (value) => nom = value!,
               ),
@@ -86,7 +86,7 @@ class _AddAdministratorScreenState extends State<AddAdministratorScreen> {
                 onSaved: (value) => email = value!,
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Password'),
+                decoration: const InputDecoration(labelText: 'Mot de passe'),
                 obscureText: true,
                 validator: (value) => value!.isEmpty ? 'Please enter password' : null,
                 onSaved: (value) => password = value!,
@@ -128,7 +128,7 @@ class _AddAdministratorScreenState extends State<AddAdministratorScreen> {
                   backgroundColor: Colors.indigo,
                   padding: const EdgeInsets.symmetric(vertical: 15),
                 ),
-                child: const Text('Add Administrator'),
+                child: const Text('Ajouter un administrateur'),
               ),
             ],
           ),

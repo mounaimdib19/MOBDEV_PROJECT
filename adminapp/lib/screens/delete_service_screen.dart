@@ -22,39 +22,64 @@ class _DeleteServiceScreenState extends State<DeleteServiceScreen> {
   }
 
   Future<void> _fetchServices() async {
-    final response = await http.get(Uri.parse(Environment.getservicetypes()));
-    if (response.statusCode == 200) {
-      final data = json.decode(response.body);
-      if (data['success']) {
-        setState(() {
-          _services = List<Map<String, dynamic>>.from(data['service_types']);
-        });
-      }
+  final response = await http.get(Uri.parse(Environment.getservicetypes()));
+  if (response.statusCode == 200) {
+    final data = json.decode(response.body);
+    if (data['success']) {
+      setState(() {
+        _services = List<Map<String, dynamic>>.from(data['service_types'])
+            .map((service) {
+              // Ensure id_service_type is an integer
+              service['id_service_type'] = int.parse(service['id_service_type']);
+              return service;
+            }).toList();
+      });
     }
   }
+}
 
-  Future<void> _deleteService(int id) async {
+ Future<void> _deleteService(int id) async {
+  try {
     final response = await http.post(
       Uri.parse(Environment.deleteservice()),
       body: json.encode({'id_service_type': id}),
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        // Optional: Add any additional headers if needed
+      },
     );
 
+    // Add more detailed error handling
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       if (data['success']) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Service deleted successfully')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Service deleted successfully'))
+        );
         _fetchServices();
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Failed to delete service')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(data['message'] ?? 'Failed to delete service'))
+        );
       }
+    } else {
+      // Handle different HTTP status codes
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: ${response.statusCode}'))
+      );
     }
+  } catch (e) {
+    // Catch and display any network or parsing errors
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('An error occurred: $e'))
+    );
   }
-
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Delete Service')),
+      appBar: AppBar(title: const Text('Supprimer Service')),
       body: ListView.builder(
         itemCount: _services.length,
         itemBuilder: (context, index) {

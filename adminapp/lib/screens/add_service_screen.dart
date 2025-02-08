@@ -108,7 +108,7 @@ class _AddServicesScreenState extends State<AddServicesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Service'),
+        title: const Text('Ajouter un service'),
         backgroundColor: Colors.teal,
       ),
       body: SingleChildScrollView(
@@ -121,14 +121,14 @@ class _AddServicesScreenState extends State<AddServicesScreen> {
               children: [
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Service Name',
+                    labelText: 'Nom du service',
                     border: const OutlineInputBorder(),
                     filled: true,
                     fillColor: Colors.grey[200],
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter a service name';
+                      return 'Veuillez saisir un nom de service';
                     }
                     return null;
                   },
@@ -138,7 +138,7 @@ class _AddServicesScreenState extends State<AddServicesScreen> {
                 ),
                 const SizedBox(height: 16),
                 SwitchListTile(
-                  title: const Text('Has Fixed Price'),
+                  title: const Text('A un prix fixe'),
                   value: _hasFixedPrice,
                   onChanged: (bool value) {
                     setState(() {
@@ -151,7 +151,7 @@ class _AddServicesScreenState extends State<AddServicesScreen> {
                 if (_hasFixedPrice)
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Fixed Price',
+                      labelText: 'prix fixe',
                       border: const OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -177,7 +177,7 @@ class _AddServicesScreenState extends State<AddServicesScreen> {
                     backgroundColor: Colors.teal,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                  child: const Text('Select Image'),
+                  child: const Text('Selectionner Image'),
                 ),
                 const SizedBox(height: 16),
                 if (_image != null)
@@ -193,7 +193,7 @@ class _AddServicesScreenState extends State<AddServicesScreen> {
                     backgroundColor: Colors.teal,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                  child: const Text('Add Service'),
+                  child: const Text('Ajouter Service'),
                 ),
               ],
             ),

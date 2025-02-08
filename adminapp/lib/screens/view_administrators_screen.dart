@@ -45,7 +45,7 @@ class _ViewAdministratorsScreenState extends State<ViewAdministratorsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('View Administrators'),
+        title: const Text('Afficher les administrateurs'),
         backgroundColor: Colors.indigo,
       ),
       body: ListView.builder(

@@ -52,7 +52,7 @@ class _DeleteAdministratorScreenState extends State<DeleteAdministratorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Delete Administrator')),
+      appBar: AppBar(title: const Text('Supprimer Administrateur')),
       body: ListView.builder(
         itemCount: _administrators.length,
         itemBuilder: (context, index) {

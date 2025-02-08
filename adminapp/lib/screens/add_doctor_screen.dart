@@ -38,6 +38,9 @@ class _AddDoctorScreenState extends State<AddDoctorScreen> {
   
   List<Map<String, dynamic>> _serviceTypes = [];
   final List<Map<String, dynamic>> _selectedServices = [];
+  final TextEditingController _searchController = TextEditingController();
+  List<Map<String, dynamic>> _filteredServiceTypes = [];
+  bool _isExpanded = false;
 
   @override
   void initState() {
@@ -45,8 +48,14 @@ class _AddDoctorScreenState extends State<AddDoctorScreen> {
     _fetchWilayas();
     _fetchSpecialites();
     _fetchServiceTypes();
-  }
+    _searchController.addListener(_filterServices);
 
+  }
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   Future<void> _fetchWilayas() async {
     final response = await http.get(Uri.parse(Environment.getwilayas()));
@@ -71,6 +80,24 @@ class _AddDoctorScreenState extends State<AddDoctorScreen> {
       }
     }
   }
+
+   void _filterServices() {
+    if (_searchController.text.isEmpty) {
+      setState(() {
+        _filteredServiceTypes = List.from(_serviceTypes);
+      });
+    } else {
+      setState(() {
+        _filteredServiceTypes = _serviceTypes
+            .where((service) => service['nom']
+                .toString()
+                .toLowerCase()
+                .contains(_searchController.text.toLowerCase()))
+            .toList();
+      });
+    }
+  }
+
 
   Future<void> _fetchSpecialites() async {
     final response = await http.get(Uri.parse(Environment.getspecialties()));
@@ -195,401 +222,250 @@ class _AddDoctorScreenState extends State<AddDoctorScreen> {
     }
   }
 
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Doctor'),
-        backgroundColor: Colors.blue,
+        title: const Text('Ajouter Doctor', 
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+        backgroundColor: const Color(0xFF2563EB),
+        elevation: 0,
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.blue[50]!, Colors.blue[100]!],
+            colors: [
+              const Color(0xFF2563EB).withOpacity(0.1),
+              Colors.white,
+            ],
           ),
         ),
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
             child: Form(
               key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Card(
-                    elevation: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Personal Information',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'Nom',
-                              border: OutlineInputBorder(),
-                            ),
-                            validator: (value) => value!.isEmpty ? 'Please enter a name' : null,
-                            onSaved: (value) => _nom = value!,
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'Prénom',
-                              border: OutlineInputBorder(),
-                            ),
-                            validator: (value) => value!.isEmpty ? 'Please enter a first name' : null,
-                            onSaved: (value) => _prenom = value!,
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'Adresse',
-                              border: OutlineInputBorder(),
-                            ),
-                            validator: (value) => value!.isEmpty ? 'Please enter an address' : null,
-                            onSaved: (value) => _adresse = value!,
-                          ),
-                        ],
+                  _buildSection(
+                    title: 'Informations Personnelles',
+                    icon: Icons.person_outline,
+                    children: [
+                      TextFormField(
+                        decoration: _buildInputDecoration('Nom', Icons.person),
+                        validator: (value) => value!.isEmpty ? 'Veuillez entrer un nom' : null,
+                        onSaved: (value) => _nom = value!,
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Card(
-                    elevation: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Location',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 16),
-                          DropdownButtonFormField<String>(
-                            decoration: const InputDecoration(
-                              labelText: 'Wilaya',
-                              border: OutlineInputBorder(),
-                            ),
-                            items: _wilayas.map((wilaya) {
-                              return DropdownMenuItem<String>(
-                                value: wilaya['nom_wilaya'] as String,
-                                child: Text(wilaya['nom_wilaya'] as String),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _wilaya = newValue;
-                                _commune = null;
-                                _fetchCommunes(newValue!);
-                              });
-                            },
-                            validator: (value) => value == null ? 'Please select a wilaya' : null,
-                          ),
-                          const SizedBox(height: 16),
-                          DropdownButtonFormField<String>(
-                            decoration: const InputDecoration(
-                              labelText: 'Commune',
-                              border: OutlineInputBorder(),
-                            ),
-                            items: _communes.map((commune) {
-                              return DropdownMenuItem<String>(
-                                value: commune['nom_commune'] as String,
-                                child: Text(commune['nom_commune'] as String),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _commune = newValue;
-                              });
-                            },
-                            validator: (value) => value == null ? 'Please select a commune' : null,
-                          ),
-                        ],
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        decoration: _buildInputDecoration('Prénom', Icons.person_outline),
+                        validator: (value) => value!.isEmpty ? 'Veuillez entrer un prenom' : null,
+                        onSaved: (value) => _prenom = value!,
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Card(
-                    elevation: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Contact Information',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'Email',
-                              border: OutlineInputBorder(),
-                            ),
-                            validator: (value) => value!.isEmpty ? 'Please enter an email' : null,
-                            onSaved: (value) => _email = value!,
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'Mot de passe',
-                              border: OutlineInputBorder(),
-                            ),
-                            obscureText: true,
-                            validator: (value) => value!.isEmpty ? 'Please enter a password' : null,
-                            onSaved: (value) => _motDePasse = value!,
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              labelText: 'Numéro de téléphone',
-                              border: OutlineInputBorder(),
-                            ),
-                            validator: (value) => value!.isEmpty ? 'Please enter a phone number' : null,
-                            onSaved: (value) => _numeroTelephone = value!,
-                          ),
-                        ],
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        decoration: _buildInputDecoration('Adresse', Icons.home_outlined),
+                        validator: (value) => value!.isEmpty ? 'Veuillez entrer une addresse' : null,
+                        onSaved: (value) => _adresse = value!,
                       ),
-                    ),
+                    ],
                   ),
-                  const SizedBox(height: 16),
-                  Card(
-                    elevation: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Professional Information',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 16),
-                          CheckboxListTile(
-                            title: const Text('Consultation à domicile'),
-                            value: _consultationDomicile,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                _consultationDomicile = value!;
-                              });
-                            },
-                          ),
-                          CheckboxListTile(
-                            title: const Text('Consultation au cabinet'),
-                            value: _consultationCabinet,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                _consultationCabinet = value!;
-                              });
-                            },
-                          ),
-                          CheckboxListTile(
-                            title: const Text('Est infirmier'),
-                            value: _estInfirmier,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                _estInfirmier = value!;
-                              });
-                            },
-                          ),
-                          CheckboxListTile(
-                            title: const Text('Est garde malade'),
-                            value: _estGM,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                _estGM = value!;
-                              });
-                            },
-                          ),
-                          CheckboxListTile(
-                            title: const Text('Assistant téléphonique'),
-                            value: _assistantTelephonique,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                _assistantTelephonique = value!;
-                              });
-                            },
-                          ),
-                          const SizedBox(height: 16),
-                          DropdownButtonFormField<String>(
-                            decoration: const InputDecoration(
-                              labelText: 'Status',
-                              border: OutlineInputBorder(),
-                            ),
-                            value: _status,
-                            items: ['active', 'inactive'].map((String status) {
-                              return DropdownMenuItem(
-                                value: status,
-                                child: Text(status),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _status = newValue!;
-                              });
-                            },
-                          ),
-                        ],
+                  
+                  const SizedBox(height: 24),
+                  _buildSection(
+                    title: 'Location',
+                    icon: Icons.location_on_outlined,
+                    children: [
+                      DropdownButtonFormField<String>(
+                        decoration: _buildInputDecoration('Wilaya', Icons.map_outlined),
+                        items: _wilayas.map((wilaya) {
+                          return DropdownMenuItem<String>(
+                            value: wilaya['nom_wilaya'] as String,
+                            child: Text(wilaya['nom_wilaya'] as String),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _wilaya = newValue;
+                            _commune = null;
+                            _fetchCommunes(newValue!);
+                          });
+                        },
+                        validator: (value) => value == null ? 'Please select a wilaya' : null,
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Card(
-                    elevation: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Specialties',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 16),
-                          DropdownButtonFormField<String>(
-                            decoration: const InputDecoration(
-                              labelText: 'Spécialité',
-                              border: OutlineInputBorder(),
-                            ),
-                            items: _specialites.map((specialite) {
-                              return DropdownMenuItem<String>(
-                                value: specialite['nom_specialite'] as String,
-                                child: Text(specialite['nom_specialite'] as String),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _specialite = newValue;
-                                _sousSpecialite = null;
-                                _fetchSousSpecialites(newValue!);
-                              });
-                            },
-                            validator: (value) => value == null ? 'Please select a speciality' : null,
-                          ),
-                          const SizedBox(height: 16),
-                          DropdownButtonFormField<String>(
-                            decoration: const InputDecoration(
-                              labelText: 'Sous-spécialité',
-                              border: OutlineInputBorder(),
-                            ),
-                            items: _sousSpecialites.map((sousSpecialite) {
-                              return DropdownMenuItem<String>(
-                                value: sousSpecialite['nom_sous_specialite'] as String,
-                                child: Text(sousSpecialite['nom_sous_specialite'] as String),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _sousSpecialite = newValue;
-                              });
-                            },
-                          ),
-                        ],
+                      const SizedBox(height: 16),
+                      DropdownButtonFormField<String>(
+                        decoration: _buildInputDecoration('Commune', Icons.location_city_outlined),
+                        items: _communes.map((commune) {
+                          return DropdownMenuItem<String>(
+                            value: commune['nom_commune'] as String,
+                            child: Text(commune['nom_commune'] as String),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _commune = newValue;
+                          });
+                        },
+                        validator: (value) => value == null ? 'Please select a commune' : null,
                       ),
-                    ),
+                    ],
                   ),
-                  const SizedBox(height: 16),
-                  Card(
-                    elevation: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Services',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 16),
-                          ExpansionTile(
-                            title: const Text('Available Services'),
-                            children: [
-                              if (_serviceTypes.isEmpty)
-                                const ListTile(title: Text('Loading services...')),
-                              if (_serviceTypes.isNotEmpty && _serviceTypes[0].containsKey('nom') && _serviceTypes[0]['nom'].startsWith('Error'))
-                                ListTile(
-                                  title: Text(_serviceTypes[0]['nom'], style: const TextStyle(color: Colors.red)),
-                                  subtitle: const Text('Check console for more details', style: TextStyle(color: Colors.red)),
-                                ),
-                              ..._serviceTypes.where((service) => !service['nom'].toString().startsWith('Error')).map((serviceType) {
-                                return ListTile(
-                                  title: Text(serviceType['nom'].toString()),
-                                  trailing: IconButton(
-                                    icon: const Icon(Icons.add),
-                                    onPressed: () {
-                                      _addService({
-                                        'id_service_type': serviceType['id_service_type'],
-                                        'nom': serviceType['nom'],
-                                        'price': serviceType['has_fixed_price'] == 1 ? double.parse(serviceType['fixed_price'].toString()) : 0.0,
-                                      });
-                                    },
-                                  ),
-                                );
-                              }),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-                          const Text(
-                            'Selected Services',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: _selectedServices.length,
-                            itemBuilder: (context, index) {
-                              final service = _selectedServices[index];
-                              return ListTile(
-                                title: Text(service['nom']),
-                                trailing: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(
-                                      width: 100,
-                                      child: TextFormField(
-                                        initialValue: service['price'].toString(),
-                                        keyboardType: TextInputType.number,
-                                        onChanged: (value) {
-                                          setState(() {
-                                            service['price'] = double.tryParse(value) ?? 0;
-                                          });
-                                        },
-                                        decoration: const InputDecoration(
-                                          labelText: 'Price',
-                                          border: OutlineInputBorder(),
-                                        ),
-                                      ),
-                                    ),
-                                    IconButton(
-                                      icon: const Icon(Icons.remove),
-                                      onPressed: () => _removeService(index),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
-                        ],
+
+                  const SizedBox(height: 24),
+                  _buildSection(
+                    title: 'Contact Information',
+                    icon: Icons.contact_mail_outlined,
+                    children: [
+                      TextFormField(
+                        decoration: _buildInputDecoration('Email', Icons.email_outlined),
+                        validator: (value) => value!.isEmpty ? 'Please enter an email' : null,
+                        onSaved: (value) => _email = value!,
                       ),
-                    ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        decoration: _buildInputDecoration('Mot de passe', Icons.lock_outline),
+                        obscureText: true,
+                        validator: (value) => value!.isEmpty ? 'Please enter a password' : null,
+                        onSaved: (value) => _motDePasse = value!,
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        decoration: _buildInputDecoration('Numéro de téléphone', Icons.phone_outlined),
+                        validator: (value) => value!.isEmpty ? 'Please enter a phone number' : null,
+                        onSaved: (value) => _numeroTelephone = value!,
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 20),
+
+                  const SizedBox(height: 24),
+                  _buildSection(
+                    title: 'Professional Information',
+                    icon: Icons.work_outline,
+                    children: [
+                      _buildSwitchTile(
+                        title: 'Consultation à domicile',
+                        value: _consultationDomicile,
+                        onChanged: (value) => setState(() => _consultationDomicile = value),
+                        icon: Icons.home_work_outlined,
+                      ),
+                      _buildSwitchTile(
+                        title: 'Consultation au cabinet',
+                        value: _consultationCabinet,
+                        onChanged: (value) => setState(() => _consultationCabinet = value),
+                        icon: Icons.medical_services_outlined,
+                      ),
+                      _buildSwitchTile(
+                        title: 'Est infirmier',
+                        value: _estInfirmier,
+                        onChanged: (value) => setState(() => _estInfirmier = value),
+                        icon: Icons.healing_outlined,
+                      ),
+                      _buildSwitchTile(
+                        title: 'Est garde malade',
+                        value: _estGM,
+                        onChanged: (value) => setState(() => _estGM = value),
+                        icon: Icons.personal_injury_outlined,
+                      ),
+                      _buildSwitchTile(
+                        title: 'Assistant téléphonique',
+                        value: _assistantTelephonique,
+                        onChanged: (value) => setState(() => _assistantTelephonique = value),
+                        icon: Icons.support_agent_outlined,
+                      ),
+                      const SizedBox(height: 16),
+                      DropdownButtonFormField<String>(
+                        decoration: _buildInputDecoration('Status', Icons.toggle_on_outlined),
+                        value: _status,
+                        items: ['active', 'inactive'].map((String status) {
+                          return DropdownMenuItem(
+                            value: status,
+                            child: Text(status.capitalize()),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _status = newValue!;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 24),
+                  _buildSection(
+                    title: 'Specialties',
+                    icon: Icons.medical_information_outlined,
+                    children: [
+                      DropdownButtonFormField<String>(
+                        decoration: _buildInputDecoration('Spécialité', Icons.local_hospital_outlined),
+                        items: _specialites.map((specialite) {
+                          return DropdownMenuItem<String>(
+                            value: specialite['nom_specialite'] as String,
+                            child: Text(specialite['nom_specialite'] as String),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _specialite = newValue;
+                            _sousSpecialite = null;
+                            _fetchSousSpecialites(newValue!);
+                          });
+                        },
+                        validator: (value) => value == null ? 'Please select a speciality' : null,
+                      ),
+                      const SizedBox(height: 16),
+                      DropdownButtonFormField<String>(
+                        decoration: _buildInputDecoration('Sous-spécialité', Icons.bookmark_outline),
+                        items: _sousSpecialites.map((sousSpecialite) {
+                          return DropdownMenuItem<String>(
+                            value: sousSpecialite['nom_sous_specialite'] as String,
+                            child: Text(sousSpecialite['nom_sous_specialite'] as String),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _sousSpecialite = newValue;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 24),
+                  _buildSection(
+                    title: 'Services',
+                    icon: Icons.medical_services_outlined,
+                    children: [
+                      _buildServicesExpansionTile(),
+                      const SizedBox(height: 16),
+                      _buildSelectedServicesList(),
+                    ],
+                  ),
+
+                  const SizedBox(height: 32),
                   ElevatedButton(
-  onPressed: _submitForm,
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.blue,
-    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-  ),
-  child: const Text('Add Doctor'),
-),
+                    onPressed: _submitForm,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2563EB),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Text(
+                      'Ajouter le docteur',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
                 ],
               ),
             ),
@@ -597,5 +473,295 @@ class _AddDoctorScreenState extends State<AddDoctorScreen> {
         ),
       ),
     );
+  }
+
+  Widget _buildSection({
+    required String title,
+    required IconData icon,
+    required List<Widget> children,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, color: const Color(0xFF2563EB)),
+              const SizedBox(width: 12),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF1F2937),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          ...children,
+        ],
+      ),
+    );
+  }
+
+  InputDecoration _buildInputDecoration(String label, IconData icon) {
+    return InputDecoration(
+      labelText: label,
+      prefixIcon: Icon(icon, color: const Color(0xFF6B7280)),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Color(0xFF2563EB)),
+      ),
+      filled: true,
+      fillColor: Colors.white,
+    );
+  }
+
+  Widget _buildSwitchTile({
+    required String title,
+    required bool value,
+    required Function(bool) onChanged,
+    required IconData icon,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        border: Border.all(color: const Color(0xFFE5E7EB)),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: SwitchListTile(
+        title: Row(
+          children: [
+            Icon(icon, size: 20, color: const Color(0xFF6B7280)),
+            const SizedBox(width: 12),
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Color(0xFF374151),
+              ),
+            ),
+          ],
+        ),
+        value: value,
+        onChanged: onChanged,
+        activeColor: const Color(0xFF2563EB),
+      ),
+    );
+  }
+
+Widget _buildServicesExpansionTile() {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: const Color(0xFFE5E7EB)),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          title: const Text(
+            'Services fournis',
+            style: TextStyle(
+              color: Color(0xFF374151),
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          onExpansionChanged: (expanded) {
+            setState(() {
+              _isExpanded = expanded;
+              if (expanded) {
+                _filteredServiceTypes = List.from(_serviceTypes);
+              }
+            });
+          },
+          initiallyExpanded: _isExpanded,
+          children: [
+            if (_serviceTypes.isEmpty)
+              const Padding(
+                padding: EdgeInsets.all(16),
+                child: Center(child: CircularProgressIndicator()),
+              )
+            else
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                      controller: _searchController,
+                      decoration: InputDecoration(
+                        hintText: 'Rechercher un service...',
+                        prefixIcon: const Icon(Icons.search),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(color: Color(0xFF2563EB)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: _filteredServiceTypes.length,
+                    itemBuilder: (context, index) {
+                      final service = _filteredServiceTypes[index];
+                      return ListTile(
+                        leading: const Icon(Icons.medical_services_outlined),
+                        title: Text(service['nom'].toString()),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.add_circle_outline),
+                          color: const Color(0xFF2563EB),
+                          onPressed: () {
+                            _addService({
+                              'id_service_type': service['id_service_type'],
+                              'nom': service['nom'],
+                              'price': service['has_fixed_price'] == 1
+                                  ? double.parse(service['fixed_price'].toString())
+                                  : 0.0,
+                            });
+                            setState(() {
+                              _isExpanded = false;
+                              _searchController.clear();
+                            });
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSelectedServicesList() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Selected Services',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFF374151),
+          ),
+        ),
+        const SizedBox(height: 12),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: _selectedServices.length,
+          itemBuilder: (context, index) {
+final service = _selectedServices[index];
+            return Container(
+              margin: const EdgeInsets.only(bottom: 8),
+              decoration: BoxDecoration(
+                border: Border.all(color: const Color(0xFFE5E7EB)),
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.white,
+              ),
+              child: ListTile(
+                leading: const Icon(
+                  Icons.medical_services_outlined,
+                  color: Color(0xFF6B7280),
+                ),
+                title: Text(
+                  service['nom'],
+                  style: const TextStyle(
+                    color: Color(0xFF374151),
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      child: TextFormField(
+                        initialValue: service['price'].toString(),
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          labelText: 'Price',
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(
+                              color: Color(0xFFE5E7EB),
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(
+                              color: Color(0xFFE5E7EB),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(
+                              color: Color(0xFF2563EB),
+                            ),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            service['price'] = double.tryParse(value) ?? 0;
+                          });
+                        },
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.remove_circle_outline,
+                        color: Color(0xFFEF4444),
+                      ),
+                      onPressed: () => _removeService(index),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+extension StringExtension on String {
+  String capitalize() {
+    return "${this[0].toUpperCase()}${substring(1)}";
   }
 }

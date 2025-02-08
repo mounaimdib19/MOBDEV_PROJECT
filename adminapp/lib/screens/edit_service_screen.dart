@@ -98,7 +98,7 @@ class _EditServiceScreenState extends State<EditServiceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit Service'),
+        title: const Text('édition de service'),
         backgroundColor: Colors.teal,
       ),
       body: SingleChildScrollView(
@@ -112,7 +112,7 @@ class _EditServiceScreenState extends State<EditServiceScreen> {
                 TextFormField(
                   initialValue: _serviceName,
                   decoration: InputDecoration(
-                    labelText: 'Service Name',
+                    labelText: 'Nom du service',
                     border: const OutlineInputBorder(),
                     filled: true,
                     fillColor: Colors.grey[200],
@@ -129,7 +129,7 @@ class _EditServiceScreenState extends State<EditServiceScreen> {
                 ),
                 const SizedBox(height: 16),
                 SwitchListTile(
-                  title: const Text('Has Fixed Price'),
+                  title: const Text('A un prix fixe?'),
                   value: _hasFixedPrice,
                   onChanged: (bool value) {
                     setState(() {
@@ -151,7 +151,7 @@ class _EditServiceScreenState extends State<EditServiceScreen> {
                     keyboardType: TextInputType.number,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter a fixed price';
+                        return 'Veuillez saisir un prix fixe';
                       }
                       if (double.tryParse(value) == null) {
                         return 'Please enter a valid number';
